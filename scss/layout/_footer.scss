@@ -1,0 +1,178 @@
+@charset 'utf-8';
+
+/**
+** 푸터
+**/
+
+$color-footer-line: #cbcbcb;
+
+/// 푸터 영역
+.mm_footer {
+	background: #eee;
+
+	/// 앱설치
+	&-app {
+		// 앱으로 접속 시 숨김
+		.__app & {
+			display: none;
+		}
+
+		.btn_app {
+			display: block;
+			position: relative;
+			z-index: 1;
+			color: #fff;
+			height: 37px;
+			background: #494949;
+			font-size: 12px;
+			line-height: 37px;
+			text-align: center;
+
+			p {
+				display: inline-block;
+
+				&:before {
+					margin: -4px 10px 0 0;
+					width: 51px;
+					height: 41px;
+					background: url('../images/content/app_banner_icon.png') no-repeat 0 0;
+					background-size: cover;
+					content: "";
+				}
+
+				span {
+					color: #fdf0c1;
+				}
+
+				strong {
+					display: inline-block;
+					margin-top: -2px;
+					font-size: 17px;
+				}
+			}
+
+			.mco_app-download {
+				margin: 1px 0 -1px 6px;
+			}
+		}
+	}
+	///-- 앱설치
+
+	/// 메뉴
+	&-menu {
+		background: #e1e1e1;
+
+		> ul {
+			height: 32px;
+			font-size: 12px;
+			line-height: 32px;
+
+			> li {
+				position: relative;
+
+				&:nth-child(n+2) {
+					padding-left: 1px;
+
+					&:before {
+						position: absolute;
+						top: 11px;
+						left: 0;
+						height: 10px;
+						border-left: 1px solid $color-footer-line;
+						content: "";
+					}
+				}
+			}
+		}
+	}
+	///-- 메뉴
+
+	/// 정보
+	&-info {
+		padding: 13px 0 13px 10px;
+		color: #666;
+		font-size: 11px;
+		line-height: 14px;
+
+		> ul {
+			> li {
+				position: relative;
+				float: left;
+
+				&:nth-child(n+2) {
+					padding-left: 1px;
+
+					&:before {
+						position: absolute;
+						top: 2px;
+						left: 0;
+						height: 10px;
+						border-left: 1px solid $color-footer-line;
+						content: "";
+					}
+				}
+
+				strong {
+					display: inline-block;
+					padding-right: 8px;
+				}
+
+				a {
+					padding: 0 8px;
+				}
+			}
+		}
+
+		.mm_box {
+			margin: 8px 0;
+
+			p {
+				span {
+					display: inline-block;
+
+					&:nth-of-type(n+2) {
+						&:before {
+							margin: 2px 8px 0;
+							height: 10px;
+							border-left: 1px solid $color-footer-line;
+							content: "";
+						}
+					}
+				}
+			}
+		}
+
+		.mm_btngroup {
+			li {
+				position: relative;
+				float: left;
+
+				&:nth-child(n+2) {
+					padding-left: 1px;
+
+					&:before {
+						position: absolute;
+						top: 2px;
+						left: 0;
+						height: 10px;
+						border-left: 1px solid $color-footer-line;
+						content: "";
+					}
+				}
+
+				a {
+					padding: 0 8px;
+				}
+			}
+		}
+
+		.text_copyright {
+			margin-top: 16px;
+			color: #989898;
+			font-size: 10px;
+			text-align: center;
+		}
+	}
+	///-- 정보
+}
+///-- 푸터 영역

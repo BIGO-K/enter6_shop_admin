@@ -1,0 +1,57 @@
+@charset 'utf-8';
+
+/**
+** 에러
+**/
+
+/// 에러
+.mm_app[class*="_error_"] {
+	.mm_view {
+		padding-top: 0;
+	}
+
+	.mm_page-content {
+		padding: 0;
+		height: 100%;
+	}
+
+	.m-error {
+		height: 100%;
+		font-size: 0;
+		text-align: center;
+
+		&:before {
+			margin-left: -1px;
+			width: 1px;
+			height: 100%;
+			vertical-align: middle;
+			content: "";
+		}
+
+		&-inner {
+			display: inline-block;
+			padding: 50px 0;
+			vertical-align: middle;
+			color: #555;
+			font-size: 18px;
+			letter-spacing: -1px;
+
+			h1 {
+				margin-top: 18px;
+				font-weight: 500;
+				font-size: 26px;
+				letter-spacing: -2px;
+			}
+
+			p {
+				margin-top: 9px;
+			}
+
+			.mm_btn {
+				margin-top: 29px;
+				width: 174px;
+			}
+		}
+	}
+}
+///-- 에러

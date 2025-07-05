@@ -1,0 +1,938 @@
+@charset 'utf-8';
+
+/**
+** 모달
+**/
+
+$width-modal-base: 700px;
+
+/// 모달 영역
+.mm_modal {
+	overflow: hidden;
+	position: absolute;
+	z-index: $index-modal;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	@include opacity(0, none);
+	@include transition(opacity 0s $time-fast);
+
+	// 모달 열림
+	.__modal & {
+		@include opacity(1, auto);
+		@include transition(opacity 0s ease-in);
+
+		.mm_modal-dim {
+			@include opacity(1);
+		}
+	}
+
+	&-dim {
+		width: 100%;
+		height: 100%;
+		background: rgba(#000, 0.88);
+		@include opacity(0);
+		@include transition(opacity $time-fast);
+	}
+
+	&-items {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+}
+///-- 모달 영역
+
+/// 모달 요소
+.mm_modal-item {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	@include opacity(0, none);
+	@include transform(scale(1.2));
+	@include transition(opacity $time-fast, transform $time-fast);
+
+	.mm_modal & {
+		display: block;
+	}
+
+	// 현재창
+	&.__modal-on {
+		z-index: 1;
+		@include opacity(1, auto);
+		@include transform(scale(1));
+	}
+
+	// 노출모션
+	&.__modal-motion-up {
+		@include transform(translateY(10%));
+
+		&.__modal-on {
+			@include transform(translateY(0));
+		}
+	}
+	&.__modal-motion-down {
+		@include transform(translateY(-10%));
+
+		&.__modal-on {
+			@include transform(translateY(0));
+		}
+	}
+	&.__modal-motion-left {
+		@include transform(translateX(10%));
+
+		&.__modal-on {
+			@include transform(translateX(0));
+		}
+	}
+	&.__modal-motion-right {
+		@include transform(translateX(-10%));
+
+		&.__modal-on {
+			@include transform(translateX(0));
+		}
+	}
+
+	.btn_modal-area {
+		width: 100%;
+		height: 100%;
+		background: rgba(#000, 0);
+		cursor: default;
+	}
+
+	&-inner {
+		overflow: hidden;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		padding-top: 60px;
+		width: $width-modal-base;
+		max-height: 90%;
+		background: #fff;
+		@include transform(translate(-50%, -50%));
+	}
+
+	&-head {
+		position: absolute;
+		top: 0;
+		right: 20px;
+		left: 20px;
+		padding-top: 6px;
+		border-bottom: 2px solid #303952;
+
+		h5 {
+			padding: 0 40px 0 3px;
+			height: 52px;
+			color: #303952;
+			font-weight: 500;
+			font-size: 26px;
+			line-height: 50px;
+			letter-spacing: -1px;
+			@include text-ellipsis(1);
+		}
+	}
+
+	&-content {
+		position: relative;
+		padding: 20px 20px 30px;
+		height: 100%;
+
+		.mm_scroller & {
+			height: auto;
+		}
+
+		// 첫 번째 form 테이블
+		> .mm_formbox:first-child {
+			> table {
+				border-top: 0;
+
+				&:first-child {
+					margin-top: -20px;
+				}
+			}
+		}
+
+		// 첫 번째 리스트
+		> .mm_list:first-child {
+			margin-top: -20px;
+
+			> .mm_scroller {
+				border-top: 0;
+			}
+		}
+
+		.mm_pagination {
+			margin: 10px 0;
+		}
+	}
+}
+///-- 모달 요소
+
+/// 모달 닫기
+.btn_modal-close {
+	position: absolute;
+	top: 5px;
+	right: 7px;
+	width: 57px;
+	height: 57px;
+	color: #303952;
+	font-size: 30px;
+	line-height: 57px;
+	text-align: center;
+}
+///-- 모달 닫기
+
+/// 모달 페이지
+.mm_app[class*="_modal_"] {
+	.mm_view {
+		padding-top: 60px;
+	}
+
+	.mm_header {
+		right: 0;
+		left: 0;
+		padding: 6px 20px 0;
+		height: auto;
+		border-bottom: 0;
+		line-height: 1;
+
+		.mm_title {
+			padding: 0 40px 0 3px;
+			border-bottom: 2px solid #303952;
+			height: 54px;
+			color: #303952;
+			font-weight: 500;
+			font-size: 26px;
+			line-height: 50px;
+			letter-spacing: -1px;
+			@include text-ellipsis(1);
+		}
+	}
+
+	.mm_page-content {
+		padding: 0;
+	}
+
+	.mm_list {
+		> .mm_scroller {
+			max-height: 350px;
+
+			&[class*="_x_"] {
+				max-height: none;
+			}
+		}
+	}
+}
+
+// iframe 내부
+.mm_modal-frame {
+	@extend .mm_modal-item-content;
+	width: $width-modal-base;
+}
+///-- 모달 페이지
+
+/// 우편번호찾기
+.m-modal-postcode {
+	&.mm_modal-frame,
+	.mm_modal-item-inner {
+		width: 480px;
+	}
+
+	.m-modal-postcode-form {
+		position: relative;
+		padding-right: 110px;
+
+		.mm_btn {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: auto;
+		}
+	}
+
+	// 우편번호예시
+	.m-modal-postcode-guide {
+		.text_guide {
+			padding: 16px 0 17px;
+			color: #808080;
+			font-size: 14px;
+			line-height: 20px;
+			text-align: center;
+		}
+
+		> dl {
+			padding: 16px 0 24px 35px;
+			border-top: 2px solid #596275;
+			background: #f5f5f5;
+
+			> dt {
+				position: relative;
+				font-size: 16px;
+				line-height: 20px;
+
+				.mco_info {
+					position: absolute;
+					left: -23px;
+					font-size: 20px;
+				}
+			}
+
+			> dd {
+				margin-top: 13px;
+				font-size: 14px;
+
+				> .mm_text-secondary {
+					font-weight: 500;
+				}
+			}
+		}
+	}
+	//-- 우편번호예시
+
+	/// 우편번호리스트
+	.m-modal-postcode-list {
+		margin-top: 38px;
+
+		.text_result {
+			margin-bottom: 12px;
+			font-size: 16px;
+
+			strong {
+				font-weight: 500;
+			}
+		}
+
+		> ul {
+			border-top: 2px solid #596275;
+
+			> li {
+				padding: 10px 0 10px 4px;
+				border-bottom: 1px solid #d3d3d3;
+			}
+		}
+
+		.mm_text-none {
+			border-top: 2px solid #596275;
+		}
+	}
+
+	.m-modal-postcode-item {
+		position: relative;
+		padding-right: 102px;
+
+		> a {
+			display: block;
+		}
+
+		dl {
+			position: relative;
+			padding-left: 65px;
+			min-height: 26px;
+			font-size: 14px;
+
+			&:nth-of-type(2) {
+				margin-top: 7px;
+			}
+
+			dt {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 56px;
+				height: 26px;
+				border: 1px solid #202020;
+				background: #fff;
+				line-height: 23px;
+				text-align: center;
+
+				&.mm_text-secondary {
+					border-color: $color-secondary-base;
+				}
+			}
+
+			dd {
+				padding-top: 2px;
+				line-height: 20px;
+			}
+		}
+
+		.text_postcode {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			margin-top: -10px;
+			width: 102px;
+			font-size: 19px;
+			text-align: center;
+		}
+	}
+	///-- 우편번호리스트
+}
+///-- 우편번호찾기
+
+/// 배송지 추가/수정
+.m-modal-destination {
+	&-modify,
+	&-add {
+		.m-modal-destination-form {
+			th {
+				width: 160px;
+			}
+
+			.mm_form-text {
+				+ .mm_form-check {
+					margin: 8px 0 8px 10px;
+				}
+			}
+		}
+	}
+}
+///-- 배송지 추가/수정
+
+/// 환급통장 추가/수정
+.m-modal-refund {
+	// &-modify,
+	&-add {
+		.m--refund-form {
+			th {
+				width: 160px;
+			}
+
+			td {
+				.mm_form-text {
+					width: 250px;
+				}
+			}
+
+			.mm_form-text {
+				+ .mm_form-check {
+					margin: 8px 0 8px 10px;
+				}
+			}
+		}
+	}
+}
+///-- 환급통장 추가/수정
+
+/// 셀러검색
+.m-modal-seller {
+	.mm_list {
+		tbody {
+			[tabindex] {
+				cursor: pointer;
+			}
+		}
+	}
+}
+///-- 셀러검색
+
+/// 브랜드 검색
+.m-modal-brand {
+	.mm_list {
+		tbody {
+			[tabindex] {
+				cursor: pointer;
+			}
+		}
+	}
+}
+///-- 브랜드검색
+
+/// 제휴사 브랜드검색
+.m-modal-alliance-brand {
+	.m--brand-result {
+		margin-top: 20px;
+		font-size: 16px;
+		text-align: center;
+	}
+
+	.mm_list {
+		tbody {
+			[tabindex] {
+				cursor: pointer;
+			}
+		}
+	}
+}
+///-- 제휴사 브랜드검색
+
+/// 제휴사분류선택
+.m-modal-alliance-category {
+	&.mm_modal-frame,
+	.mm_modal-item-inner {
+		width: 1220px;
+	}
+
+	.m--category {
+		&-selected {
+			margin: 6px 0 10px;
+			font-size: 14px;
+		}
+	}
+}
+///-- 제휴사분류선택
+
+/// MD검색
+.m-modal-md {
+	.mm_list {
+		tbody {
+			[tabindex] {
+				cursor: pointer;
+			}
+		}
+	}
+}
+///-- MD검색
+
+/// 엑셀설정
+.m-modal-excel-setup {
+	.mm_formbox {
+		.mm_check-list {
+			> ul {
+				margin: 0;
+				border: 1px solid #d3d3d3;
+				border-width: 1px 0 0 1px;
+
+				> li {
+					margin: 0;
+					padding: 10px 0 10px 10px;
+					width: 25%;
+					border: 1px solid #d3d3d3;
+					border-width: 0 1px 1px 0;
+
+					.mco_sort {
+						margin-left: -7px;
+						padding: 0 7px;
+						line-height: 24px;
+						cursor: move;
+						cursor: -webkit-grabbing;
+						@include prefix(touch-action, none, ms);
+					}
+				}
+			}
+		}
+	}
+
+	dl {
+		margin: 40px -20px -30px;
+		padding: 16px 30px;
+		background: #f5f5f5;
+		font-size: 14px;
+		line-height: 21px;
+
+		dd {
+			position: relative;
+			padding-left: 8px;
+
+			&:before {
+				position: absolute;
+				top: 0;
+				left: -5px;
+				content: "ㆍ";
+			}
+		}
+	}
+}
+///-- 엑셀설정
+
+/// 메일발송
+.m-modal-send-email {
+	.mm_formbox {
+		> table {
+			th {
+				width: 140px;
+			}
+		}
+	}
+}
+///-- 메일발송
+
+/// SMS발송
+.m-modal-send-sms {
+	&.mm_modal-frame,
+	.mm_modal-item-inner {
+		width: 600px;
+	}
+
+	.m--sms-inner {
+		position: relative;
+		padding-left: 210px;
+	}
+
+	.m--sms-preview {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 200px;
+		height: 240px;
+		border: 1px solid #d3d3d3;
+		background: #f5f5f5;
+
+		.mm_form-text {
+			label {
+				border: 0;
+
+				.bg_text {
+					background: #f5f5f5;
+				}
+
+				textarea.textfield {
+					overflow-y: auto;
+					height: 215px;
+				}
+			}
+
+			.text_byte {
+				position: absolute;
+				right: 10px;
+				bottom: -12px;
+				color: #808080;
+				font-size: 14px;
+			}
+		}
+	}
+
+	.m--sms-selected {
+		h6 {
+			padding: 0 10px;
+			height: 40px;
+			background: #7e8698;
+			color: #fff;
+			font-size: 14px;
+			line-height: 40px;
+		}
+
+		.mm_scroller {
+			height: 200px;
+			padding: 10px;
+			border: 1px solid #d3d3d3;
+			border-top: 0;
+
+			li {
+				margin-top: 2px;
+
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+		}
+
+		.mm_selected {
+			width: 100%;
+			@include text-ellipsis(1);
+		}
+	}
+}
+///-- SMS발송
+
+/// 게시판 쓰기권한
+.m-modal-board-power {
+	.mm_heading {
+		padding-top: 20px;
+	}
+}
+///-- 게시판 쓰기권한
+
+/// 팝업 미리보기
+.m-modal-seller-popup {
+	&.mm_modal-frame,
+	.mm_modal-item-inner {
+		width: 440px;
+	}
+
+	.m--popup-content {
+		border: 1px solid #d3d3d3;
+
+		img {
+			width: auto;
+			max-width: 100%;
+		}
+	}
+
+	.mm_form-check {
+		margin-top: 10px;
+	}
+}
+///-- 팝업 미리보기
+
+/// 문의하기
+.m-modal-send-inquiry {
+	&.mm_modal-frame,
+	.mm_modal-item-content {
+		padding-top: 0;
+	}
+
+	table {
+		tbody {
+			tr {
+				th {
+					width: 160px;
+				}
+			}
+		}
+	}
+}
+///-- 문의하기
+
+/// 판매 옵션확인
+.m-modal-sell-option {
+	.mm_list {
+		margin-top: 20px;
+	}
+
+	.text_product-name {
+		margin-bottom: 10px;
+		color: #202020;
+		font-size: 16px;
+	}
+}
+///-- 판매 옵션확인
+
+/// 상품 옵션확인
+.m-modal-product-option {
+	.mm_heading {
+		padding-top: 20px;
+	}
+
+	.mm_list {
+		margin-top: 0;
+	}
+}
+///-- 상품 옵션확인
+
+/// 셀러업체 정보
+.m-modal-seller-info {
+	&.mm_modal-frame,
+	.mm_modal-item-content {
+		padding-top: 0;
+
+		input,
+		textarea {
+			color: #808080;
+		}
+	}
+}
+///-- 셀러업체 정보
+
+/// 메일,sms 발송 내역 상세
+.m-modal-mailanalyze {
+	margin-top: 0;
+}
+///-- 메일,sms 발송 내역 상세
+
+/// 메일,sms 발송 목록
+.m-modal-mail-list,
+.m-modal-sms-list {
+	.mm_heading {
+		padding-top: 20px;
+	}
+}
+///-- 메일,sms 발송 목록
+
+/// 상품검색 모달
+.m-modal-goods {
+	.mm_list {
+		table {
+			tbody {
+				tr {
+					td {
+						> span,
+						> p {
+							padding: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+///-- 상품검색 모달
+
+/// 발급범위 고객 지정, 사용범위
+.m-modal {
+	&-provide-custom,
+	&-brand-using,
+	&-category-using,
+	&-seller-using {
+		.mm_heading {
+			padding-top: 20px;
+		}
+
+		.mm_list {
+			margin-top: 0;
+		}
+	}
+
+	&-prod-using {
+		.mm_heading {
+			padding-top: 20px;
+		}
+
+		.mm_list {
+			margin-top: 0;
+
+			table {
+				thead {
+					th[colspan] {
+						background: #fff;
+					}
+				}
+			}
+		}
+	}
+}
+///-- 발급범위 고객 지정, 사용범위
+
+/// 회원출석일
+.m-modal-member-attend {
+	&.mm_modal-frame,
+	.mm_modal-item-inner {
+		width: 480px;
+	}
+
+	.mm_heading {
+		padding-top: 20px;
+	}
+
+	.mm_list {
+		margin-top: 0;
+	}
+}
+///-- 회원출석일
+
+/// 할인내역
+.m-modal-sale-list {
+	.mm_formbox {
+		tr {
+			td {
+				.mm_form-text {
+					margin-top: 6px;
+
+					&:first-child {
+						margin-top: 0;
+					}
+				}
+			}
+		}
+	}
+}
+///-- 할인내역
+
+/// 룰렛결과확인
+.m-modal-member-roulette {
+	&.mm_modal-frame,
+	.mm_modal-item-inner {
+		width: 540px;
+	}
+
+	.mm_heading {
+		padding-top: 20px;
+	}
+
+	.mm_list {
+		margin-top: 0;
+	}
+}
+///-- 룰렛결과확인
+
+/// 푸시메시지
+.m-modal-push-message {
+	&.mm_modal-frame,
+	.mm_modal-item-inner {
+		width: 440px;
+	}
+
+	.m--popup-content {
+		border: 1px solid #d3d3d3;
+		font-size: 15px;
+		line-height: 19px;
+
+		img {
+			width: auto;
+			max-width: 100%;
+		}
+	}
+}
+///-- 푸시메시지
+
+/// 반품/교환 입고검수
+.m-modal-return {
+	.mm_form-text {
+		margin-bottom: 7px;
+	}
+
+	&-result {
+		margin-top: 20px;
+		padding: 32px 0;
+		width: 100%;
+		background: #f5f5f5;
+		font-size: 16px;
+		text-align: center;
+	}
+}
+///-- 반품/교환 입고검수
+
+
+/// 서브관리자 - 공지사항 알림
+.m-modal-notice {
+	padding-top: 76px;
+	font-size: 16px;
+	text-align: center;
+	line-height: 24px;
+
+	p {
+		strong {
+			color: #f78408;
+			font-size: 22px;
+			font-weight: 700;
+			vertical-align: -1px;
+		}
+	}
+
+	.mm_btngroup {
+		margin-top: 67px;
+
+		.mm_btn {
+			width: 174px;
+		}
+	}
+}
+///-- 서브관리자 - 공지사항 알림
+
+/// 자주 쓰는 고시정보
+.m-modal-product-notice {
+	&.mm_modal-frame {
+		width: 480px;
+	}
+
+	h3 {
+		padding: 0 0 11px 4px;
+		font-size: 14px;
+	}
+
+	.mm_selected-list {
+		.mm_scroller {
+			border: 0;
+
+			ul {
+				padding: 0 20px 0 4px;
+			}
+		}
+
+		.mm_selected {
+			@include text-ellipsis(1);
+
+			button:first-child {
+				width: 100%;
+				text-align: left;
+			}
+		}
+	}
+}
+///-- 자주 쓰는 고시정보

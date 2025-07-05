@@ -1,0 +1,238 @@
+@charset 'utf-8';
+@import 'helpers/mixins';
+
+/**
+** 협력사관리자
+**/
+
+/// 상점 관리
+// 요약정보
+[class*="m-coopadmin-summary"] {
+	.mm_heading {
+		small {
+			margin-left: 4px;
+			font-size: 13px;
+			vertical-align: 0;
+		}
+	}
+}
+
+.m-coopadmin-summary {
+    // 현황
+	&-state {
+		margin-left: -11px;
+		@include clearfix;
+		
+		section {
+			float: left;
+            margin-top: 39px;
+			padding-left: 11px;
+			width: 25%;
+			
+            .mm_list {
+                margin-top: -1px;
+                
+                td {
+                    width: 83px;
+                    border-right: 0;
+                }
+                
+                span:after {
+                    border-color: #fa9a11 !important;
+                }
+            }
+		}
+	}
+    
+    // 공지사항, 인기상품
+	&-customer {
+		margin-left: -22px;
+		@include clearfix;
+		
+		.mm_tab {
+			float: left;
+			padding-left: 22px;
+			width: 50%;
+			
+			.mm_tabmenu {
+	            margin-top: 60px;
+	            
+	            .btn_tab {
+	                width: 286px;
+	                
+	                small {
+	                    margin-left: 4px;
+	                    font-size: 13px;
+	                    
+	                    strong {
+	                        color: #ffcc00;
+	                    }
+	                }
+	            }
+	        }
+			
+			.mm_tab-item {
+				border-bottom: 1px solid #b9b9b9;
+	            font-size: 13px;
+	            
+	            li {
+	                position: relative;
+	                border: 1px solid #d3d3d3;
+	                border-top: 0;
+	                
+	                a {
+	                    padding: 0 100px 0 15px;
+	                    width: 100%;
+	                    line-height: 48px;
+	                    
+	                    p {
+	                        @include text-ellipsis(1);
+	                    }
+	                    
+	                    span {
+	                        position: absolute;
+	                        top: 0;
+	                        right: 17px;
+	                        cursor: default;
+	                    }
+	                }
+	            }
+	        }
+		}
+		
+		.mm_section {
+			float: left;
+			padding-left: 22px;
+			width: 50%;
+			
+			.mm_heading {
+	            margin-top: 13px;
+	        }
+			
+			.mm_scroller {
+	            max-height: 296px;
+	            
+	            tr {
+	                td:nth-child(2) {
+	                    text-align: left;
+	                }
+	                
+	                .text_price {
+	                    &:after {
+	                        content: "원";
+	                    }
+	                }
+	            }
+	        }
+        }
+		
+		.btn_more {
+			float: right;
+			margin-top: 12px;
+			font-size: 13px;
+			
+			.mco_link {
+				margin: 2px 0 0 8px;
+				font-size: 10px;
+				@include transform(scale(0.8));
+			}
+			
+			&:after {
+				margin-top: 2px;
+				width: 100%;
+				border-top: 1px solid #000;
+				content: "";
+			}
+		}
+	}
+    
+    // 가이드다운로드
+	&-guide {
+		margin-top: 50px;
+		border: 1px solid #d3d3d3;
+		font-size: 15px;
+		
+		li {
+			float: left;
+			position: relative;
+			width: 25%;
+			height: 55px;
+			border-left: 1px solid #d3d3d3;
+			
+			&:first-child {
+				border-left: 0;
+			}
+			
+			.btn_download {
+				display: block;
+				padding: 20px;
+			}
+			
+			i {
+				position: absolute;
+				right: 21px;
+				color: #959595;
+			}
+		}
+	}
+}
+//-- 요약정보
+
+// 공지사항
+.editor_area {
+	font-size: 14px;
+	line-height: 18px;
+}
+
+.image_notice {
+	max-width: 70%;
+}
+//-- 공지사항
+
+// 셀러 행사제안 > 행사제안 수정 - 파일 업로드
+.m-selleradmin-shop-file {
+    .mm_form-check {
+        margin-bottom: 6px;
+    }
+
+    a.mm_btn {
+        display: table-cell;
+
+        + .m--file-upload {
+            display: none;
+        }
+
+        &.__check-on {
+            display: none;
+
+            + .m--file-upload {
+                display: block;
+            }
+        }
+    }
+}
+///-- 상점 관리
+
+/// 고객센터/게시판관리
+// 판매자FAQ
+.m-coopadmin-cs-faq {
+	.mm_accordion {
+		td:last-child {
+			padding: 0;
+			text-align: left;
+			
+			.btn_dropdown {
+				padding: 18px 50px 18px 60px;
+				
+				&:before {
+					top: 16px;
+				}
+			}
+			
+			.mm_dropdown-item-inner {
+				padding-bottom: 32px;
+			}
+		}
+	}
+}
+///-- 고객센터/게시판관리

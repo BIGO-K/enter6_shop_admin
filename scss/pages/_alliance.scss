@@ -1,0 +1,58 @@
+@charset 'utf-8';
+
+/**
+** 제휴사 연동
+**/
+
+/// 제휴사 관리
+.m-alliance-set {
+    .text_byte {
+		color: #808080;
+	}
+}
+///-- 제휴사 관리
+
+/// 분류 맵핑관리
+.m-alliance-category {
+    // 연동목록
+	&-list {
+		p {
+			position: relative;
+			
+			button {
+				text-align: left;
+			}
+
+			&[class*="text_depth"] {
+				&:before {
+					position: absolute;
+					left: 0px;
+					color: #b9b9b9;
+				}
+			}
+			
+			$bullet: "";
+			@for $i from 1 through 4 {
+				&.text_depth#{$i} {
+					padding-left: 11px * ($i - 1) + 16px;
+					
+					&:before {
+						$bullet: $bullet + "ㄴ";
+						content: $bullet;
+					}
+				}
+			}
+		}
+	}
+}
+///-- 분류 맵핑관리
+
+/// 하프클럽 맵핑관리
+.m-alliance-half {
+    .mm_list {
+		.mco_horizon {
+			font-size: 22px;
+		}
+    }
+}
+///-- 하프클럽 맵핑관리

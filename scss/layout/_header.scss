@@ -1,0 +1,156 @@
+@charset 'utf-8';
+
+/**
+** 헤더
+** GNB는 _navigation에서 수정
+**/
+
+/// 헤더 영역
+.mm_header {
+	position: absolute;
+	z-index: $index-header;
+	top: 0;
+	right: 0;
+	left: 0;
+	padding: 9px 15px 9px 20px;
+	height: $height-header-base;
+	border-bottom: 1px solid #d3d3d3;
+	background: #fff;
+	font-size : 13px;
+	line-height: 32px;
+
+	.text_member {
+		float: left;
+		font-weight: 500;
+
+		.mco_nonmember,
+		.mco_member {
+			margin: 4px 8px 0 0 ;
+			width: 24px;
+			height: 24px;
+			border-radius: 50%;
+			background: #596275;
+			color: #b9b9b9;
+			font-size: 11px;
+			line-height: 24px;
+			text-align: center;
+		}
+	}
+
+	.btn_store {
+		float: left;
+		position: relative;
+		margin-left: 3px;
+		padding: 0 5px;
+		color: #596275;
+		font-size: 11px;
+
+		&:after {
+			position: absolute;
+			right: 3px;
+			bottom: 8px;
+			left: 4px;
+			border-top: 1px solid #596275;
+			content: "";
+		}
+
+		.mco_shortcut {
+			margin-right: 4px;
+		}
+	}
+
+	.btn_login,
+	.btn_logout {
+		float: left;
+		margin-left: 9px;
+		padding: 0 5px;
+		color: #252525;
+
+		// .mco_login, .mco_logout
+		[class^="mco_log"] {
+			margin: 2px 6px -2px 0;
+			color: #b1b1b1;
+			font-size: 16px;
+		}
+	}
+
+	/// 간략주문현황조회
+	&-quickview {
+		float: left;
+
+		.btn_dropdown {
+			width: 200px;
+			height: 32px;
+			border: 1px solid #596275;
+			background: $color-primary-light;
+			color: #303952;
+			line-height: 30px;
+
+			> span {
+				display: block;
+				padding: 0 31px 0 8px;
+				text-align: left;
+			}
+
+			.mco_dropdown {
+				width: 31px;
+				height: 100%;
+				border-left: 1px solid #596275;
+				text-align: center;
+
+				&:before {
+					padding-right: 1px;
+				}
+			}
+		}
+
+		.mm_dropdown-item {
+			position: absolute;
+			width: 100%;
+
+			&-inner {
+				border: 1px solid #596275;
+				border-width: 0 1px;
+				background: #fff;
+			}
+
+			ul {
+				padding: 7px 12px;
+				color: #2c2c2c;
+				line-height: 22px;
+
+				li {
+					strong {
+						float: right;
+						width: 78px;
+						color: #596275;
+						font-weight: 500;
+						text-align: center;
+					}
+				}
+			}
+
+			.btn_reload {
+				display: block;
+				padding-left: 9px;
+				width: 100%;
+				height: 32px;
+				background: #596275;
+				color: #fff;
+				font-size: 13px;
+				line-height: 32px;
+				text-align: left;
+
+				> span {
+					display: block;
+				}
+
+				.mco_reload {
+					margin: 1px 7px -1px 0;
+				}
+			}
+		}
+	}
+	///-- 간략주문현황조회
+}
+///-- 헤더 영역

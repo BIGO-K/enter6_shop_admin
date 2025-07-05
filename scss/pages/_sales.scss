@@ -1,0 +1,55 @@
+@charset 'utf-8';
+
+/**
+** 매출/통계
+**/
+
+/// 공통
+.m-sales-list {
+    // 리스트 하단 버튼과 mm_formbox-attention이 같이 있을 경우 사용
+    .mm_formbox-attention {
+        + .mm_list-foot {
+            margin-top: -2px;
+        }
+    }
+}
+///-- 공통
+
+/// 자사몰 유입경로
+.m-sales-route-list {
+    .mm_dropdown {
+        .btn_dropdown {
+            width: auto;
+            cursor: pointer;
+            
+            .mco_down {
+				position: absolute;
+				top: 0;
+				right: 12px;
+				line-height: 53px;
+            }
+        }
+        
+        .mm_dropdown-item {
+            display: none;
+        }
+        
+        &.__dropdown-on {
+			.mco_down {
+				@include transform(rotate(180deg));
+			}
+            
+            .mm_dropdown-item {
+                display: table-row;
+                background: #e1e1e1;
+                
+                table {
+                    border: 1px solid #d3d3d3;
+					border-width: 0 0 1px 1px;
+                    background: #fff;
+                }
+            }
+        }
+    }
+}
+///-- 자사몰 유입경로

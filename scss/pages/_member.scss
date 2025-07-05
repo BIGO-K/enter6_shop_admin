@@ -1,0 +1,123 @@
+@charset 'utf-8';
+
+/**
+** 회원 관리
+**/
+
+/// 회원목록 - 회원정보수정
+.m-member-modify {
+	/// 증빙서류정보
+	&-proof {
+		[class^="mm_syncer-personal"] {
+			.mm_formbox-linked {
+				margin-top: 4px;
+			}
+		}
+	}
+	///-- 증빙서류정보
+}
+///-- 회원목록 - 회원정보수정
+
+/// 회원관리 - 자동메일/SMS 설정
+.m-member-mail-set {
+	.m--set-template {
+		position: relative;
+		padding: 20px 0 0 270px;
+		// min-height: 434px;
+		min-height: 902px;
+
+		h6 {
+			margin-bottom: 12px;
+			font-size: 16px;
+		}
+
+		&-sms {
+			position: absolute;
+			top: 20px;
+			left: 0;
+			padding: 0 28px 0 20px;
+			width: 270px;
+
+			.m--sms-frame {
+				position: relative;
+
+				.mm_form-text {
+					position: absolute;
+					top: 43px;
+					bottom: 53px;
+					left: 11px;
+					right: 11px;
+
+					.textfield {
+						overflow-y: auto;
+						background: #f5f5f5;
+					}
+				}
+			}
+		}
+
+		&-kakao {
+			position: absolute;
+			top: 465px;
+			left: 0;
+			padding: 0 28px 0 20px;
+			width: 270px;
+
+			.m--kakao-frame {
+				position: relative;
+			}
+
+			.mm_form-text {
+				overflow-y: auto;
+				position: absolute;
+				top: 43px;
+				bottom: 53px;
+				left: 11px;
+				right: 11px;
+				padding: 10px 8px;
+				font-size: 14px;
+				line-height: 18px;
+			}
+		}
+
+		&-mail {
+			width: 880px;
+
+			> iframe {
+				border: 2px solid #d3d3d3;
+			}
+		}
+	}
+}
+///-- 회원관리 - 자동메일/SMS 설정
+
+/// 회원관리 - 포인트관리
+.m-member-point {
+	/// 포인트 기본설정
+	&-option {
+		.mm_formbox-linked {
+			margin-bottom: 6px;
+
+			.text_linked {
+				width: 120px;
+			}
+		}
+	}
+	/// 포인트 기본설정
+
+	/// 추가 적립/차감
+	&-detail {
+		.text_point {
+			margin-top: 36px;
+			font-size: 18px;
+			line-height: 24px;
+			text-align: center;
+
+			+ .mm_section {
+				margin-top: 35px;
+			}
+		}
+	}
+	///-- 추가 적립/차감
+}
+/// 회원관리 - 포인트관리

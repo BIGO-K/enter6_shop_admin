@@ -1,0 +1,93 @@
+@charset 'utf-8';
+
+/**
+** 셀러 관리
+**/
+
+/// 셀러 공지/팝업
+.m-seller-popup {
+    &-list {
+        table {
+            tbody {
+                tr {
+                    td:first-child {
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+}
+///-- 셀러 공지/팝업
+
+/// 셀러 수동등록
+.m-seller-register {
+	// 기본정보
+    &-info {
+        .m--info-id {
+            .mm_form-text {
+                width: 220px;
+            }
+        }
+    }
+	
+	// 배송정책/방문수령지관리
+    &-delivery {
+		.m--delivery-company {
+			margin-top: 0;
+			
+			@include context-before('.mm_radio-list +') {
+				display: none;
+				margin-top: 10px;
+				
+				&.__radio-on {
+					display: block;
+				}
+			}
+			
+			.btn_default,
+			.btn_add {
+				margin-bottom: 5px;
+			}
+		}
+    }
+	
+	// 셀러수수료 및 계좌정보
+    &-account {
+        .m--account {
+			// 정산일자
+            &-date {
+                .mm_btn {
+					min-width: 60px;
+				}
+				
+				.btn_remove {
+					margin-top: 5px;
+				}
+            }
+			
+			// 정산유형
+            &-type {
+                margin: 10px 0;
+				border: 1px solid #d3d3d3;
+
+				table {
+					td {
+                        .mm_form-select {
+                            width: auto;
+                        }
+					}
+				}
+				
+				.mm_btn {
+					min-width: 60px;
+				}
+				
+				.btn_remove {
+					margin-top: 5px;
+				}
+            }
+        }
+    }
+}
+///-- 셀러 수동등록

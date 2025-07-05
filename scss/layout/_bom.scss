@@ -1,0 +1,164 @@
+@charset 'utf-8';
+
+/**
+** 브라우저(시스템) 팝업
+**/
+
+/// 팝업 영역
+.mm_bom {
+	overflow: hidden;
+	position: absolute;
+	z-index: $index-bom;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	@include opacity(0, none);
+	@include transition(opacity 0s $time-fast);
+
+	// 팝업 열림
+	.__bom & {
+		@include opacity(1, auto);
+		@include transition(opacity 0s);
+
+		.mm_bom-dim {
+			@include opacity(1);
+		}
+	}
+
+	&-dim {
+		width: 100%;
+		height: 100%;
+		background: rgba(#000, 0.8);
+		@include opacity(0);
+		@include transition(opacity $time-fast);
+	}
+
+	&-items {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+}
+///-- 팝업 영역
+
+/// 팝업 요소
+.mm_bom-item {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	@include opacity(0, none);
+	@include transform(scale(1.2));
+	@include transition(opacity $time-fast, transform $time-fast);
+
+	// 현재창
+	&.__bom-on {
+		z-index: 1;
+		@include opacity(1, auto);
+		@include transform(scale(1));
+	}
+
+	.mm_bom--container {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 280px;
+		text-align: center;
+		@include transform(translate(-50%, -50%));
+
+		> .mm_box {
+			overflow: hidden;
+			border-radius: 4px;
+			
+			> * {
+				background: #fff;
+			}
+		}
+	}
+
+	[class^="mco_bom"] {
+		position: absolute;
+		top: -31px;
+		left: 50%;
+		margin-left: -31px;
+		width: 62px;
+		height: 62px;
+		border: 4px solid #fff;
+		border-radius: 50%;
+		background: #e2e2e2;
+		color: #596275;
+		text-align: center;
+		line-height: 54px;
+
+		&.mco_bom-alert {
+			line-height: 50px;
+		}
+	}
+
+	.mm_bom--text {
+		padding: 36px 10px 18px;
+
+		h2 {
+			color: $color-primary-base;
+			font-weight: 400;
+			font-size: 18px;
+			line-height: 22px;
+
+			+ p {
+				margin-top: 2px;
+			}
+		}
+
+		p {
+			color: #424242;
+			font-size: 14px;
+			line-height: 18px;
+		}
+
+		+ .mm_bom--form {
+			margin-top: -10px;
+		}
+	}
+
+	.mm_bom--form {
+		padding: 0 14px 14px;
+
+		li:nth-child(n+2) {
+			margin-top: 4px;
+		}
+	}
+
+	.mm_bom--btngroup {
+		padding: 14px;
+		background: #596275 !important;
+
+		ul {
+			height: 39px;
+		}
+
+		li:nth-child(n+2) {
+			margin-left: 5px;
+		}
+
+		button {
+			border-radius: 4px;
+			font-size: 16px;
+			line-height: 39px;
+
+			&.btn_no {
+				background: #e2e2e2;
+				color: #959595;
+			}
+
+			&.btn_ok {
+				background: $color-primary-base;
+				color: #fff;
+			}
+		}
+	}
+}
+///-- 팝업 요소

@@ -1,0 +1,75 @@
+@charset 'utf-8';
+
+/**
+** 정산 관리
+**/
+
+/// 정산관리목록(내용이 많거나, thead > th에 일부 colspan이 있을 때 적용)
+.m-calc-list {
+	.mm_list {
+		thead {
+			th {
+				&[colspan] {
+					position: relative;
+
+					&:before {
+						position: absolute;
+						top: 0;
+						left: -1px;
+						bottom: 0;
+						border-left: 1px solid #d9d9d9;
+						content: "";
+					}
+				}
+			}
+		}
+
+		tbody {
+			tr {				
+				> * {
+					padding: 9px;
+					// white-space: normal;
+
+					p:not(.mm_text-none) {
+						min-width: 170px;
+					}
+				}
+			}						
+			
+			// td {
+			// 	.mco_form-check {
+			// 		font-size: 15px;
+			// 	}												
+			// }				
+		}
+	}
+
+	// 주문상품 옵션
+    .text_calc-option {
+        padding-top: 0;
+    }
+
+    // 기타사유 말줄임(text_reason으로 적용 중, 이슈 발생 시 변경)
+    // .mm_text-ellipsis {
+    //     width: 100px;
+    // }
+
+	// 정산내역erp전송하기
+	&-erp {
+		margin-top: 30px;
+
+		.mm_btn {
+			padding: 0 20px;
+		}
+	}
+}
+
+.m-calc-set-co {
+	tr {
+		.mco_form-check {
+			color: #00999d;
+    		font-size: 20px;
+		}	
+	}
+}
+///-- 정산관리

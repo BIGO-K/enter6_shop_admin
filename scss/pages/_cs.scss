@@ -1,0 +1,135 @@
+@charset 'utf-8';
+
+/**
+** 고객센터/게시판 관리
+**/
+
+/// 일반/포토후기
+.m-csreview {
+	td {
+		> .mco_form-check {
+			color: #00999d;
+			font-size: 26px;
+			text-align: center;
+			line-height: 20px;
+		}
+	}
+
+	&-detail {
+		.image_review {
+			margin-bottom: 8px;
+			border: 1px dashed #d3d3d3;
+			
+			i {
+				width: 300px;
+				height: 200px;
+			}
+		}
+	}
+}
+///-- 일반/포토후기
+
+/// 상품Q&A - 셀러업체정보 툴팁
+.m-csqna-sellerinfo {
+	position: relative;
+	cursor: pointer;
+
+	.mco_info-simple {
+		margin-left: 4px;
+		color: #959595;
+	}
+
+	&-tooltip {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+		margin-left: 3px;
+        padding: 7px 10px;
+        min-width: 178px;
+        max-width: 360px;
+        height: auto;
+        font-size: 13px;
+        background: #f5f5f5;
+        border: 1px solid #959595;
+        white-space: normal;
+
+		:hover > &,
+		:focus > & {
+			display: inline-block;
+		}
+
+        ul {
+            line-height: 18px;
+        }
+    }
+}
+///-- 상품Q&A - 셀러업체정보
+
+/// 제휴문의
+.m-csalliance {
+    &-list {
+		i.mco_file {
+			padding: 5px 10px;
+			color: #596275;
+			font-size: 15px;
+		}
+    }
+}
+///-- 제휴문의
+
+/// 고객1:1문의
+.m-csinquiry {
+    &-btngroup {
+		// 이관하기
+        .btn_transfer {
+            background: #6e7687;
+        }
+    }
+}
+///-- 고객1:1문의
+
+/// 공지사항
+.m-csnotice {
+	// 비밀글 아이콘
+    &-secret {
+        &.mco_secret {
+            margin-left: 6px;
+            color: #959595;
+        }
+    }
+
+	// 글쓰기 제목
+    &-title {
+        .mm_form-text {
+            display: inline-block;
+            width: 700px;
+
+			+ .mm_form-check {
+                margin: 8px 0 0 8px;
+            }
+        }
+    }
+}
+///-- 공지사항
+
+/// FAQ 관리
+.m-csfaq {
+	dl {
+		padding: 9px 0;
+
+		&.__dropdown-on {
+			dd {
+				margin-top: 9px;
+				padding-top: 9px;
+				border-top: 1px solid #d3d3d3;
+			}
+		}
+
+		.btn_dropdown {
+			width: 100%;
+			text-align: left;
+		}
+	}
+}
+///-- FAQ 관리

@@ -1,0 +1,120 @@
+@charset 'utf-8';
+
+/**
+** 쇼핑몰 관리
+**/
+
+/// 약관상세
+.m-mall-terms-detail {
+	padding: 28px 4px 0;
+
+	> p {
+		font-size: 16px;
+	}
+
+	.m--detail-item {
+		margin-top: 25px;
+		font-size: 14px;
+		line-height: 23px;
+
+		ul {
+			padding-top: 20px;
+
+			&:first-of-type {
+				padding-top: 0;
+			}
+		}
+
+		table {
+			table-layout: auto;
+			margin: 10px 0;
+			width: auto;
+
+			th, td {
+				padding: 5px 10px;
+				border: 1px solid #d3d3d3;
+			}
+		}
+	}
+}
+///-- 약관상세
+
+.m-mallset {
+    /// 배송/택배 정책
+    &-delivery {
+        &-return {
+			.mm_formbox-linked {
+				.mm_form-text {
+					margin-right: 4px;
+					padding-right: 0;
+					width: 252px;
+
+					label {
+						.textfield {
+							text-align: left;
+						}
+					}
+				}
+			}
+        }
+
+		// 셀러별배송정책리스트
+        &-seller {
+			.mm_list {
+				position: relative;
+				margin-top: -2px;
+
+				a[data-href] {
+					+ span {
+						display: block;
+	                    padding: 0;
+	                    text-align: left;
+					}
+				}
+			}
+        }
+    }
+    ///-- 배송/택배 정책
+
+}
+///-- 쇼핑몰 환경설정
+
+/// 관리자 설정
+.m-malladmin {
+    &-list {
+        .mm_list {
+            margin-top: 0;
+        }
+    }
+
+	// 재직구분 - 퇴사사원
+    &-retiree {
+		margin-top: 10px !important;
+
+        tr {
+			border-top: 1px solid #d3d3d3 !important;
+		}
+    }
+
+    &-department {
+        .mm_formbox {
+            > table {
+                td {
+                    table {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+///-- 관리자 설정
+
+/// 도서산간지역 설정
+// 도서산간지역 적용목록
+.m-mall-local-list {
+	.mm_scroller {
+		max-height: 625px;
+	}
+}
+///-- 도서산간지역 설정

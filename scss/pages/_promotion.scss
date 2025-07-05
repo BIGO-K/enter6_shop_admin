@@ -1,0 +1,170 @@
+@charset 'utf-8';
+
+/**
+** 프로모션
+**/
+
+/// 쿠폰 관리
+.m-promocoupon {
+    /// 쿠폰목록
+    &-list {
+        // thead {
+        //     tr:last-child {
+        //         th {
+        //             background: #f0f0f0;
+        //             border-left: 1px solid #d3d3d3;
+        //         }
+        //     }
+        // }
+
+        .image_coupon {
+            max-width: 100px;
+        }
+    }
+	///-- 쿠폰목록
+
+    /// 쿠폰발행관리
+    &-provide {
+		// 특정카테고리상품
+		.m--range-category {
+			display: inline-block;
+
+			.btn_add {
+				display: block;
+				margin: 10px auto;
+				width: 200px;
+
+				.mco_next {
+					margin-left: 12px;
+					transform: rotate(90deg);
+				}
+			}
+		}
+
+		// 특정상품
+		.m--range-product {
+			.mm_scroller {
+				margin-top: 10px;
+				// max-height: 200px;
+				// border: 1px solid #d3d3d3;
+
+				ul {
+					margin: -6px 0 0 -6px;
+					// padding: 10px;
+
+					li {
+						float: left;
+						margin: 6px 0 0 6px;
+					}
+				}
+			}
+		}
+    }
+	///-- 쿠폰발행관리
+
+	/// 자동발행설정
+	&-auto-add {
+		li {
+			margin-bottom: 6px;
+		}
+
+		.mm_btn[class*="_xxs_"] {
+			width: 60px;
+		}
+
+		.btn_remove {
+			margin-top: 5px;
+		}
+	}
+	///-- 자동발행설정
+}
+///-- 쿠폰 관리
+
+/// 오프라인쿠폰 관리
+.m-promo-offline {
+	/// 지급쿠폰목록
+	&-issued {
+		> table {
+			border-bottom: 1px solid #b9b9b9;
+
+			.mm_form-select {
+				width: 700px;
+			}
+		}
+
+		.btn_add {
+			margin-top: 20px;
+		}
+	}
+	///-- 지급쿠폰목록
+}
+///-- 오프라인쿠폰 관리
+
+/// 상품할인 관리
+.m-promosale {
+    /// 상품선택
+    &-product {
+		.mm_scroller {
+			margin-top: 10px;
+			// max-height: 200px;
+			// border: 1px solid #d3d3d3;
+
+			ul {
+				margin: -6px 0 0 -6px;
+				// padding: 10px;
+
+				li {
+					float: left;
+					margin: 6px 0 0 6px;
+				}
+			}
+		}
+    }
+    ///-- 상품선택
+
+	/// 엑셀업로드
+	&-upload {
+		.mm_form-file {
+			margin-top: 6px;
+		}
+
+		.m--upload-btngroup {
+			margin-top: 6px;
+			@include clearfix;
+
+			> * {
+				float: left;
+			}
+
+			.btn_upload {
+				width: 140px;
+			}
+
+			a[download] {
+				margin-left: 12px;
+				font-size: 11px;
+				line-height: 40px;
+			}
+		}
+	}
+	///-- 엑셀업로드
+}
+
+// 하단서브밋 체크박스
+.m-promo-foot {
+    text-align: center;
+
+    .mm_form-check {
+        margin-bottom: 10px;
+    }
+}
+///-- 상품할인 관리
+
+/// 이벤트 관리
+.m-promoevent {
+	// 응모이벤트 - pc와 동일내용노출
+    &-content-check {
+        margin-bottom: 6px;
+    }
+}
+///-- 이벤트 관리

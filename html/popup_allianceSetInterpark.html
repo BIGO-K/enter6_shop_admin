@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>(팝업) 인터파크 API KEY 관리 - 엔터식스 온라인몰 관리자</title>
+
+	<!-- 라이브러리 css -->
+	<link rel="stylesheet" href="../css/libs/fontello-custom.css">
+	<link rel="stylesheet" href="../css/libs/swiper-4.3.3.min.css">
+	<link rel="stylesheet" href="../css/libs/pikaday.css">
+	<link rel="stylesheet" href="../css/libs/overlayscrollbars-1.5.1.min.css">
+
+	<!-- 페이지 css -->
+	<link rel="stylesheet" class="link_font" resource="../css/fonts.css">
+	<link rel="stylesheet" href="../css/app.css">
+
+	<!-- (D) 스크립트(폴리필, 라이브러리)는 요청을 줄이기 위해 combind + minify를 적용해주세요. -->
+	<!-- 폴리필 스크립트 -->
+	<script src="../js/polyfill/es6-promise.auto-4.2.4.min.js"></script>
+
+	<!-- 라이브러리 스크립트 -->
+	<script src="../js/libs/webfontloader-1.6.28.min.js"></script>
+	<script src="../js/libs/jquery-3.3.1.slim.min.js"></script>
+	<script src="../js/libs/axios-0.18.0.min.js"></script>
+	<script src="../js/libs/underscore-1.9.1.min.js"></script>
+	<script src="../js/libs/load-image.all-2.19.0.min.js"></script>
+	<script src="../js/libs/swiper-4.3.3.min.js"></script>
+	<script src="../js/libs/tweenmax-2.0.1.min.js"></script>
+	<script src="../js/libs/moment-2.22.2.min.js"></script>
+	<script src="../js/libs/pikaday-1.6.1.min.js"></script>
+	<script src="../js/libs/sortable-1.9.0.min.js"></script>
+	<script src="../js/libs/overlayscrollbars-1.5.1.min.js"></script>
+	<script src="../js/libs/chart-2.7.2.min.js"></script>
+	<script src="../js/libs/ckeditor.full-4.10.0/ckeditor.js"></script>
+
+	<!-- (D) 페이지 공통 스크립트는 body 하단, 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app __app_popup__">
+		<!-- 스킵 -->
+		<nav class="mm_skip">
+			<ul>
+				<li><a href="#mm_body" data-href="anchor">본문바로가기</a></li>
+			</ul>
+		</nav>
+		<!-- 스킵 -->
+
+		<!-- 화면 -->
+		<div class="mm_view">
+			<!-- 헤더 -->
+			<div class="mm_header">
+				<h1 class="mm_title"><span>인터파크 API KEY 관리</span></h1>
+				<button type="button" class="btn_popup-close" onclick="mm.popup.close();">
+					<i class="mco_popup-close"></i>
+					<span class="mm_ir-blind">팝업닫기</span>
+				</button>
+			</div>
+			<!--// 헤더 -->
+
+			<!-- 내용 -->
+			<div id="mm_body" class="mm_page">
+				<div class="mm_scroller" data-scrollbar>
+					<!-- 본문 -->
+					<div class="mm_page-content">
+						<!-- (D) 실제 내용을 추가하는 부분입니다. -->
+
+						<!-- API KEY 추가/수정 -->
+						<section class="mm_section m-alliance-set">
+							<h3 class="mm_heading">
+								<i class="mco_heading"></i><span>API KEY 추가/수정</span>
+							</h3>
+							<div class="mm_formbox">
+								<table>
+									<tbody>
+										<tr>
+											<th scope="row"><span>제휴사명</span></th>
+											<td>
+												<div class="mm_form-text">
+													<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+													<label>
+														<input type="text" class="textfield" value="인터파크 API" readonly><i class="bg_text"></i>
+														<span class="text_placeholder mm_ir-blind">제휴사명</span>
+													</label>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><span>제휴사 코드</span></th>
+											<td>
+												<div class="mm_form-text">
+													<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+													<label>
+														<input type="text" class="textfield" value="Interpark api" readonly><i class="bg_text"></i>
+														<span class="text_placeholder mm_ir-blind">제휴사명</span>
+													</label>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><span>API 관리명</span></th>
+											<td>
+												<div class="mm_form-text">
+													<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+													<label>
+														<input type="text" class="textfield"><i class="bg_text"></i>
+														<span class="text_placeholder mm_ir-blind">API 관리명</span>
+													</label>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><span>API 관리키</span></th>
+											<td>
+												<div class="mm_form-text">
+													<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+													<label>
+														<input type="text" class="textfield"><i class="bg_text"></i>
+														<span class="text_placeholder mm_ir-blind">API 관리키</span>
+													</label>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><span>API 1차키</span></th>
+											<td>
+												<div class="mm_form-text __text_area__">
+													<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+													<label>
+														<textarea class="textfield"></textarea><i class="bg_text"></i>
+														<span class="text_placeholder mm_ir-blind">API 1차키</span>
+													</label>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><span>API 2차키</span></th>
+											<td>
+												<div class="mm_form-text __text_area__">
+													<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+													<label>
+														<textarea class="textfield"></textarea><i class="bg_text"></i>
+														<span class="text_placeholder mm_ir-blind">API 2차키</span>
+													</label>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><span>사용유무</span></th>
+											<td>
+												<div class="mm_radio-list">
+													<ul>
+														<li>
+															<label class="mm_form-radio">
+																<input type="radio" name="radio_api" checked>
+																<b class="mm_box-block">
+																	<i class="mco_form-radio"></i>
+																	<span class="text_label">사용</span>
+																</b>
+															</label>
+														</li>
+														<li>
+															<label class="mm_form-radio">
+																<input type="radio" name="radio_api">
+																<b class="mm_box-block">
+																	<i class="mco_form-radio"></i>
+																	<span class="text_label">사용안함</span>
+																</b>
+															</label>
+														</li>
+													</ul>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="mm_btngroup">
+									<div class="mm_box-inline">
+										<button type="button" class="mm_btn __btn_secondary__ btn_submit"><span>저장하기</span></button>
+
+                                        <!-- (D) 수정버튼을 클릭하면 아래 버튼을 노출합니다. -->
+										<button type="button" class="mm_btn btn_cancel"><span>취소하기</span></button>
+										<button type="button" class="mm_btn __btn_secondary__ btn_modify"><span>수정하기</span></button>
+									</div>
+								</div>
+							</div>
+						</section>
+						<!--// API KEY 추가/수정 -->
+						
+						<!-- API KEY 목록 -->
+						<section class="mm_section">
+							<h3 class="mm_heading"><i class="mco_heading"></i><span>API KEY 목록</span></h3>
+
+							<div class="mm_list">
+								<div class="mm_scroller __scroller_x__">
+									<table>
+									    <thead>
+									        <tr>
+									            <th scope="col"><span>API 관리명</span></th>
+									            <th scope="col"><span>API 관리키</span></th>
+									            <th class="col_2x" scope="col"><span>API 1차키</span></th>
+									            <th class="col_2x" scope="col"><span>API 2차카</span></th>
+									            <th scope="col"><span>사용유무</span></th>
+									            <th class="col_btn" scope="col"><span>관리</span></th>
+									        </tr>
+									    </thead>
+									    <tbody>
+									        <tr>
+									            <td><span>상품 Q&#38;A 수정</span></td>
+									            <td><p>UpdateQnaAPIData</p></td>
+									            <td><p>IIuUU34JDcq9ktOlyFWcE2ICrl4Bcm3f</p></td>
+									            <td><p>xeW29Nrvkn3MiEROlZOvUP9yQm/Iik3/</p></td>
+									            <td><span>사용</span></td>
+									            <td>
+									                <div class="mm_btngroup">
+									                    <div class="mm_box-inline">
+															<button type="button" class="mm_btn __btn_xxs_secondary__ btn_modify">수정</button>
+									                        <button type="button" class="mm_btn __btn_xxs_dark__ btn_remove">삭제</button>
+									                    </div>
+									                </div>
+									            </td>
+									        </tr>
+									        <tr>
+									            <td><span>상품 Q&#38;A 등록</span></td>
+									            <td><p>InsertQnaAPIData</p></td>
+									            <td><p>DBIDlM/ZTuzuAS7zAbGH1dTmyltjekrR</p></td>
+									            <td><p>QgGsp^sO7VGXUJF9cQS/NoXsstT7SOHQ</p></td>
+									            <td><span>사용</span></td>
+									            <td>
+									                <div class="mm_btngroup">
+									                    <div class="mm_box-inline">
+															<button type="button" class="mm_btn __btn_xxs_secondary__ btn_modify">수정</button>
+									                        <button type="button" class="mm_btn __btn_xxs_dark__ btn_remove">삭제</button>
+									                    </div>
+									                </div>
+									            </td>
+									        </tr>
+									        <tr>
+									            <td><span>상품 Q&#38;A 조회</span></td>
+									            <td><p>GetQnaInquiryForAPI</p></td>
+									            <td><p>biFys87CWMWVwenBy^NhijAMv^9rIUAB</p></td>
+									            <td><p>rttDLCWjo^zcx45wqt049jZ7S6BKTimA</p></td>
+									            <td><span>사용안함</span></td>
+									            <td>
+									                <div class="mm_btngroup">
+									                    <div class="mm_box-inline">
+															<button type="button" class="mm_btn __btn_xxs_secondary__ btn_modify">수정</button>
+									                        <button type="button" class="mm_btn __btn_xxs_dark__ btn_remove">삭제</button>
+									                    </div>
+									                </div>
+									            </td>
+									        </tr>
+									    </tbody>
+									</table>
+								</div>
+							</div>
+						</section>
+						<!--// API KEY 목록 -->
+
+						<!-- 페이지 스크립트 -->
+						<!-- <script src="../js/.js"></script> -->
+					</div>
+					<!--// 본문 -->
+				</div>
+			</div>
+			<!--// 내용 -->
+		</div>
+		<!--// 화면 -->
+	</div>
+
+	<!-- 공통 스크립트 -->
+	<script src="../js/app_common.js"></script>
+	<script src="../js/app_page-common.js"></script>
+</body>
+</html>

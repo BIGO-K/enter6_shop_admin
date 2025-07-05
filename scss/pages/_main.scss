@@ -1,0 +1,348 @@
+@charset 'utf-8';
+
+/**
+** 메인, 로그인
+**/
+
+/// 메인
+[class*="m-main"] {
+	.mm_heading {
+		small {
+			margin-left: 4px;
+			font-size: 13px;
+			vertical-align: 0;
+		}
+	}
+}
+
+.m-main {
+	// 메인현황
+	&-state {
+		margin-left: -11px;
+		@include clearfix;
+		
+		section {
+			float: left;
+			margin-top: 39px;
+			padding-left: 11px;
+			width: 25%;
+			
+			&.m-main-state-join {
+				clear: both;
+				float: none;
+				margin-top: 0;
+				padding-top: 49px;
+				width: 100%;
+			}
+			
+			&:not(.m-main-state-join) {
+				.mm_list {
+					margin-top: -1px;
+					
+					td {
+						width: 83px;
+						border-right: 0;
+					}
+					
+					span:after {
+						border-color: #fa9a11 !important;
+					}
+				}
+			}
+		}
+	}
+	
+	// 매출분석
+	&-sales {
+		margin-top: 49px;
+		
+		&-inner {
+			padding: 47px 100px 55px;
+			border: 1px solid #d3d3d3;
+			border-top: 0;
+			border-bottom: 2px solid #b9b9b9;
+			text-align: center;
+		}
+		
+		ul {
+			display: inline-block;
+			margin-bottom: 19px;
+			
+			li {
+				float: left;
+				margin: 0 23px;	
+			}
+		}
+
+		.mco_toggle {
+			position: relative;
+			margin: 3px 7px 0 0;
+			width: 30px;
+			height: 19px;
+			border: 2px solid #959595;
+			border-radius: 19px;
+			cursor: pointer;
+			
+			&:before {
+				position: absolute;
+				top: -2px;
+				left: -2px;
+				width: 19px;
+				height: 19px;
+				border: 2px solid #959595;
+				border-radius: 100%;
+				background: #fff;
+				@include transition(transform $time-faster);
+				content: "";
+			}
+			
+			@include context-before(':checked + .mm_box-block >') {
+				border-color: #00999d;
+				background: #00999d;
+				
+				&:before {
+					border-color: #00999d;
+					@include transform(translateX(11px));
+					content: "";
+				}
+				
+				&.toggle_ship {
+					border-color: #f78408;
+					background: #f78408;
+					
+					&:before {
+						border-color: #f78408;
+					}
+				}
+			}
+		}
+	}
+	
+	// 공지사항, FAQ
+	&-customer {
+		margin-left: -22px;
+		@include clearfix;
+		
+		.mm_tab {
+			float: left;
+			padding-left: 22px;
+			width: 50%;
+			
+			.mm_tabmenu {
+				margin-top: 60px;
+				
+				li {
+					position: relative;
+					margin: 0;
+					width: 50%;
+					
+					a {
+						border: 0;
+						
+						&:after {
+							position: absolute;
+							right: 0;
+							left: -1px;
+							height: 100%;
+							border: 1px solid #d3d3d3;
+							border-bottom: 0;
+							content: "";
+							
+							@include context-before('li:first-child >') {
+								left: 0;
+							}
+						}
+						
+						&.__tab-on {
+							&:after {
+								border-color: #6e7687;
+							}
+						}
+					}
+				}
+			}
+			
+			.btn_tab {
+				width: 100%;
+			}
+			
+			.mm_tab-item {
+				font-size: 13px;
+				
+				li {
+					position: relative;
+					border: 1px solid #d3d3d3;
+					border-top: 0;
+					
+					a {
+						padding: 0 100px 0 15px;
+						width: 100%;
+						line-height: 48px;
+						
+						p {
+							@include text-ellipsis(1);
+						}
+						
+						span {
+							position: absolute;
+							top: 0;
+							right: 17px;
+							cursor: default;
+						}
+					}
+				}
+			}
+		}
+		
+		.btn_more {
+			float: right;
+			margin-top: 12px;
+			font-size: 13px;
+			
+			.mco_link {
+				margin: 2px 0 0 8px;
+				font-size: 10px;
+				@include transform(scale(0.8));
+			}
+			
+			&:after {
+				margin-top: 2px;
+				width: 100%;
+				border-top: 1px solid #000;
+				content: "";
+			}
+		}
+	}
+	
+	// 가이드다운로드
+	&-guide {
+		margin-top: 40px;
+		border: 1px solid #d3d3d3;
+		font-size: 15px;
+		
+		li {
+			float: left;
+			position: relative;
+			width: 25%;
+			height: 55px;
+			border-left: 1px solid #d3d3d3;
+			
+			&:first-child {
+				border-left: 0;
+			}
+			
+			.btn_download {
+				display: block;
+				padding: 20px;
+			}
+			
+			i {
+				position: absolute;
+				right: 21px;
+				color: #959595;
+			}
+		}
+	}
+}
+///-- 메인
+
+/// 로그인
+.m-login {
+	$width-login: 540px;
+	$height-login: 540px;
+	
+	min-height: $height-login;
+	
+	&-inner {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: (-$height-login / 2) 0 0 (-$width-login / 2);
+		// padding: 40px 0 90px;
+		width: $width-login;
+		vertical-align: middle;
+		text-align: center;
+	}
+	
+	h1 {
+		margin-bottom: 40px;
+		padding-top: 52px;
+		background: url('../images/common/logo.png') no-repeat 50% 0;
+		background-size: 170px;
+		color: #303952;
+		font-size: 36px;
+		letter-spacing: -1px;
+	}
+	
+	&-form {
+		&-box {
+			padding: 40px 53px 20px 137px;
+			background: #303952;
+			text-align: left;
+			
+			section {
+				position: relative;
+				margin-bottom: 10px;
+				
+				h6 {
+					position: absolute;
+					top: 0;
+					left: -84px;
+					color: #fff;
+					font-size: 16px;
+					line-height: 38px;
+				}
+				
+				.mm_form-text {
+					label {
+						border-color: #2c3143;
+					}
+					
+					.btn_text-pw {
+						display: none;
+					}
+				}
+			}
+			
+			.mm_form-check {
+				.text_label {
+					color: #fff;
+				}
+			}
+		}
+		
+		.mm_radio-list {
+			padding: 20px 0;
+			border-top: 1px solid #3a435e;
+			background: #2c3143;
+			
+			ul {
+				display: inline-block;
+				margin-left: -50px;
+				
+				li {
+					margin-left: 50px;
+				}
+			}
+			
+			.mm_form-radio {
+				.text_label {
+					color: #fff;
+				}
+			}
+		}
+	}
+	
+	.btn_login {
+		margin-top: 35px;
+		width: 220px;
+	}
+	
+	.text_ielow {
+		display: none;
+		margin-top: 20px;
+		font-size: 15px;
+		white-space: nowrap;
+	}
+}
+///-- 로그인

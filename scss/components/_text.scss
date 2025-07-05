@@ -1,0 +1,150 @@
+@charset 'utf-8';
+
+/**
+** 컴포넌트
+** - 텍스트, 알림, 대체텍스트, 타이틀
+**/
+
+/// 기본형
+.mm_text {
+	/// 강조
+	&-primary {
+		color: $color-primary-base !important;
+
+		&-light {
+			color: $color-primary-light !important;
+		}
+
+		&-dark {
+			color: $color-primary-dark !important;
+		}
+	}
+	&-secondary {
+		color: $color-secondary-base !important;
+	}
+	&-tertiary {
+		color: $color-tertiary-base !important;
+	}
+	///-- 강조
+
+	/// 상태(긍정/부정)
+	&-positive {
+		color: $color-positive-base;
+	}
+	&-negative {
+		color: $color-negative-base;
+	}
+	///-- 상태(긍정/부정)
+
+	/// 없음
+	&-none {
+		padding: 54px 0 !important;
+		font-size: 16px;
+		line-height: 21px;
+		text-align: center;
+
+		small {
+			display: inline-block;
+			margin-top: 8px;
+			color: #808080;
+			font-size: 14px;
+			line-height: 20px;
+		}
+	}
+	///-- 없음
+
+	/// 상단 안내
+	&-guide {
+		// padding: 16px 14px;
+		// border-bottom: 1px solid #b9b9b9;
+		// color: #4d556a;
+		// font-size: 14px;
+		// line-height: 18px;
+	}
+	///-- 상단 안내
+
+	/// 말줄임
+	&-ellipsis {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		word-break: break-all;
+
+		br {
+			display: none;
+		}
+	}
+	///-- 말줄임
+
+	/// 쪼개기
+	&-break {
+		word-break: break-all;
+	}
+	///-- 쪼개기
+
+	/// 별점
+	&-star {
+		font-size: 14px;
+	}
+	///-- 별점
+}
+///-- 기본형
+
+/// 대체텍스트
+.mm_ir {
+	&-blind {
+		@include text-ir(blind);
+	}
+
+	&-indent {
+		@include text-ir();
+	}
+
+	&-wa {
+		@include text-ir(wa);
+	}
+}
+///-- 대체텍스트
+
+/// 페이지제목
+.mm_title {
+	color: #303952;
+	font-weight: 500;
+	font-size: 26px;
+	letter-spacing: -1px;
+}
+///-- 페이지제목
+
+/// 컨텐츠제목
+.mm_heading {
+	position: relative;
+	padding-bottom: 11px;
+	border-bottom: 2px solid #596275;
+	font-size: 19px;
+
+	.mco_heading {
+		margin: 4px 9px 0 0;
+		color: #596275;
+		font-size: 12px;
+	}
+
+	.mm_form-check {
+		margin: -3px 0 -3px 15px;
+	}
+
+	> a {
+		position: absolute;
+		right: 0;
+		bottom: 8px;
+		width: auto;
+	}
+}
+///-- 컨텐츠제목
+
+/// 소제목
+.mm_strapline {
+	padding: 46px 0 30px;
+	font-size: 22px;
+	text-align: center;
+}
+///-- 소제목

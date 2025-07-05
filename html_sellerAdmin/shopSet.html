@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>셀러정보 수정 &#60; 셀러설정 관리 &#60; 상점 관리 - 엔터식스 온라인몰 셀러 관리자</title>
+
+	<!-- 라이브러리 css -->
+	<link rel="stylesheet" href="../css/libs/fontello-custom.css">
+	<link rel="stylesheet" href="../css/libs/swiper-4.3.3.min.css">
+	<link rel="stylesheet" href="../css/libs/pikaday.css">
+	<link rel="stylesheet" href="../css/libs/overlayscrollbars-1.5.1.min.css">
+
+	<!-- 페이지 css -->
+	<link rel="stylesheet" class="link_font" resource="../css/fonts.css">
+	<link rel="stylesheet" href="../css/app.css">
+	<link rel="stylesheet" href="../css/app_seller.css"> <!-- (D) 셀러어드민에서만 사용합니다. -->
+
+	<!-- (D) 스크립트(폴리필, 라이브러리)는 요청을 줄이기 위해 combind + minify를 적용해주세요. -->
+	<!-- 폴리필 스크립트 -->
+	<script src="../js/polyfill/es6-promise.auto-4.2.4.min.js"></script>
+
+	<!-- 라이브러리 스크립트 -->
+	<script src="../js/libs/webfontloader-1.6.28.min.js"></script>
+	<script src="../js/libs/jquery-3.3.1.slim.min.js"></script>
+	<script src="../js/libs/axios-0.18.0.min.js"></script>
+	<script src="../js/libs/underscore-1.9.1.min.js"></script>
+	<script src="../js/libs/load-image.all-2.19.0.min.js"></script>
+	<script src="../js/libs/swiper-4.3.3.min.js"></script>
+	<script src="../js/libs/tweenmax-2.0.1.min.js"></script>
+	<script src="../js/libs/moment-2.22.2.min.js"></script>
+	<script src="../js/libs/pikaday-1.6.1.min.js"></script>
+	<script src="../js/libs/sortable-1.9.0.min.js"></script>
+	<script src="../js/libs/overlayscrollbars-1.5.1.min.js"></script>
+	<script src="../js/libs/chart-2.7.2.min.js"></script>
+	<script src="../js/libs/ckeditor.full-4.10.0/ckeditor.js"></script>
+
+	<!-- (D) 페이지 공통 스크립트는 body 하단, 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app">
+		<!-- 스킵 -->
+		<nav class="mm_skip">
+			<ul>
+				<li><a href="#mm_body" data-href="anchor">본문바로가기</a></li>
+			</ul>
+		</nav>
+		<!-- 스킵 -->
+
+		<!-- 사이드바 -->
+		<div id="mm_sidebar" class="mm_sidebar">
+			<div class="mm_sidebar-bottom">
+				<h1><span class="mm_ir-blind">엔터6 관리자</span></h1>
+				<button type="button" class="btn_sidebar-close"><i class="image_ico"></i><span class="mm_ir-blind">전체메뉴 접어놓기</span></button>
+			</div>
+			<button type="button" class="btn_sidebar-open"><span class="mm_ir-blind">전체메뉴 펼쳐보기</span></button>
+
+			<!-- 사이드바 - 메뉴 -->
+			<div class="mm_scroller" data-scrollbar>
+				<div class="mm_sidebar-menu">
+					<!--
+						(D) 링크는 3뎁스 메뉴를 기준으로 생성합니다.
+						1뎁스, 2뎁스만 있는 메뉴는 상위메뉴와 같은 이름으로 3뎁스를 생성합니다.
+						현재 페이지의 3뎁스 메뉴에 '__on' 클래스와 '선택됨' 타이틀을 추가합니다.
+						3뎁스에 '__on' 클래스가 있으면 페이지에 접속했을 때 1뎁스를 펼쳐지도록 적용했습니다.
+						사이드바 펼침/닫힘 상태는 cookie 대신 sessionStorage에 저장했습니다.
+					 -->
+					<ul>
+						<li>
+							<div class="mm_dropdown" data-dropdown="{ '_group': 'sideMenu' }">
+								<button type="button" class="btn_dropdown"><span>상점 관리<i class="ico_toggle"></i></span></button>
+								<div class="mm_dropdown-item">
+									<div class="mm_dropdown-item-inner">
+										<ul>
+											<li>
+												<h6><span>요약 정보</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>요약 정보</span></a></li>
+												</ul>
+											</li>
+											<li>
+												<h6><span>셀러업체 공지</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>공지사항</span></a></li>
+												</ul>
+											</li>
+											<li>
+												<h6><span>셀러 행사제안</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>행사제안 목록</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>행사제안 등록</span></a></li>
+												</ul>
+											</li>
+											<li>
+												<h6><span>셀러설정 관리</span></h6>
+												<ul>
+													<li><a href="#" class="__on" title="선택됨" data-href="{ '_type': 'link' }"><span>셀러정보 수정</span></a></li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="mm_dropdown" data-dropdown="{ '_group': 'sideMenu' }">
+								<button type="button" class="btn_dropdown"><span>상품 관리<i class="ico_toggle"></i></span></button>
+								<div class="mm_dropdown-item">
+									<div class="mm_dropdown-item-inner">
+										<ul>
+											<li>
+												<h6><span>상품 분류관리</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>자주 쓰는 옵션관리</span></a></li>
+												</ul>
+											</li>
+											<li>
+												<h6><span>상품 등록</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>상품 등록</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>스윗딜 등록(묶음상품)</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>일괄 상품 업로드</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>일괄 상품수정 업로드</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>상품승인 대기</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>상품승인 거부</span></a></li>
+												</ul>
+											</li>
+											<li>
+												<h6><span>상품 목록</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>상품 목록</span></a></li>
+												</ul>
+											</li>
+											<li>
+												<h6><span>상품정보 일괄수정</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>분류</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>판매기간/상태/노출</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>재고 일괄수정</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>상품 판매 타입/가격</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>예약 가격 설정</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>배송정책</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>상품정보고시</span></a></li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="mm_dropdown" data-dropdown="{ '_group': 'sideMenu' }">
+								<button type="button" class="btn_dropdown"><span>주문 관리<i class="ico_toggle"></i></span></button>
+								<div class="mm_dropdown-item">
+									<div class="mm_dropdown-item-inner">
+										<ul>
+											<li>
+												<h6><span>주문 관리</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>주문 목록</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>입금확인 목록</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>배송 준비중 목록</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>배송중 목록</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>배송완료 목록</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>구매확정 목록</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>배송 지연</span></a></li>
+												</ul>
+											</li>
+											<li>
+												<h6><span>주문 취소 관리</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>입금 전 취소 목록</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>입금 후 취소 목록</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>취소 요청 목록</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>자동 취소예정 목록</span></a></li>
+												</ul>
+											</li>
+											<li>
+												<h6><span>주문 반품 관리</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>엔터 배송 반품목록</span></a></li>
+												</ul>
+											</li>
+											<li>
+												<h6><span>주문 교환 관리</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>엔터 배송 교환목록</span></a></li>
+												</ul>
+											</li>
+											<li>
+												<h6><span>엑셀 양식 관리</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>엑셀 양식 관리</span></a></li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="mm_dropdown" data-dropdown="{ '_group': 'sideMenu' }">
+								<button type="button" class="btn_dropdown"><span>정산 관리<i class="ico_toggle"></i></span></button>
+								<div class="mm_dropdown-item">
+									<div class="mm_dropdown-item-inner">
+										<ul>
+											<li>
+												<h6><span>정산 관리</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>정산확정 내역(ERP)</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>엔터배송 배송비 정산</span></a></li>
+												</ul>
+											</li>
+											<li>
+												<h6><span>엔터배송 세금계산서 관리</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>배송비 세금계산서</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>업체부담 쿠폰비용</span></a></li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="mm_dropdown" data-dropdown="{ '_group': 'sideMenu' }">
+								<button type="button" class="btn_dropdown"><span>고객센터/게시판 관리<i class="ico_toggle"></i></span></button>
+								<div class="mm_dropdown-item">
+									<div class="mm_dropdown-item-inner">
+										<ul>
+											<li>
+												<h6><span>상품 Q&#38;A 관리</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>상품 Q&#38;A 관리</span></a></li>
+												</ul>
+											</li>
+											<li>
+												<h6><span>고객 1:1 문의</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>고객 1:1 문의</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>CS TALK 관리</span></a></li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="mm_dropdown" data-dropdown="{ '_group': 'sideMenu' }">
+								<button type="button" class="btn_dropdown"><span>전시 관리<i class="ico_toggle"></i></span></button>
+								<div class="mm_dropdown-item">
+									<div class="mm_dropdown-item-inner">
+										<ul>
+											<li>
+												<h6><span>상품상세 배너 관리</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>공지 배너 관리</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>공지 배너 등록</span></a></li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="mm_dropdown" data-dropdown="{ '_group': 'sideMenu' }">
+								<button type="button" class="btn_dropdown"><span>프로모션<i class="ico_toggle"></i></span></button>
+								<div class="mm_dropdown-item">
+									<div class="mm_dropdown-item-inner">
+										<ul>
+											<li>
+												<h6><span>상품할인 관리</span></h6>
+												<ul>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>셀러 할인 등록</span></a></li>
+													<li><a href="#" data-href="{ '_type': 'link' }"><span>셀러 할인 목록</span></a></li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--// 사이드바 - 메뉴 -->
+		</div>
+		<!--// 사이드바 -->
+
+		<!-- 화면 -->
+		<div class="mm_view">
+			<!-- 헤더 -->
+			<div class="mm_header">
+				<div class="mm_box-lside">
+					<!-- <p class="text_member"><i class="mco_nonmember"></i><span>로그인 하세요.</span></p> -->
+					<p class="text_member"><i class="mco_member"></i><span>Enter6_왕십리점 담당자님</span></p>
+					<a href="www.enter6.co.kr" class="btn_store" target="_blank"><i class="mco_shortcut"></i><span>마이스토어</span></a>
+				</div>
+				<div class="mm_box-rside">
+					<!-- (D) 펼칠 때 조회를 위해 onOpen 값으로 콜백을 연결할 수 있습니다. -->
+					<div class="mm_dropdown mm_header-quickview" data-dropdown="{ 'onOpen': null }">
+						<button type="button" class="btn_dropdown"><span>간략 주문현황 조회<i class="mco_dropdown __dropdown_sm__"></i></span></button>
+						<div class="mm_dropdown-item">
+							<div class="mm_dropdown-item-inner">
+								<ul>
+									<li><span>취소요청</span><strong>406</strong></li>
+									<li><span>입금예정</span><strong>106</strong></li>
+									<li><span>입금확인</span><strong>1,026</strong></li>
+									<li><span>배송준비중</span><strong>797</strong></li>
+									<li><span>배송지연</span><strong>4</strong></li>
+									<li><span>송장입력완료</span><strong>167</strong></li>
+									<li><span>배송중상품</span><strong>6,240</strong></li>
+								</ul>
+								<button type="button" class="btn_reload"><span><i class="mco_reload __reload_bold__"></i>새로고침</span></button>
+							</div>
+						</div>
+					</div>
+					<!-- <button type="button" class="btn_login"><i class="mco_login"></i><span>로그인</span></button> -->
+					<button type="button" class="btn_logout"><i class="mco_logout"></i><span>로그아웃</span></button>
+				</div>
+			</div>
+			<!--// 헤더 -->
+
+			<!-- 내용 -->
+			<div id="mm_body" class="mm_page">
+				<div class="mm_scroller" data-scrollbar>
+					<!-- 본문 -->
+					<div class="mm_page-content">
+						<!-- (D) 실제 내용을 추가하는 부분입니다. -->
+
+						<!-- 즐겨찾기 -->
+						<section class="mm_bookmark">
+							<h6><i class="mco_star"></i><span>즐겨찾기</span></h6>
+							<ul>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>모바일 배너관리</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>개별상품 등록</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>통합배너 관리</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>메인 관리</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>상품 목록</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>주문 목록</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>회원 목록</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>일괄상품등록</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+							</ul>
+						</section>
+						<!--// 즐겨찾기 -->
+
+						<!-- 페이지상단 -->
+						<div class="mm_head">
+							<h2 class="mm_title"><span>셀러정보 수정</span></h2>
+							<div class="mm_btngroup">
+								<a href="#" class="btn_help" data-href="{ '_type': 'help' }"><i class="mco_help"></i><span class="mm_ir-blind">도움말</span></a>
+								<button type="button" class="btn_bookmark"><i class="mco_bookmark"></i><span>즐겨찾기 추가</span></button>
+								<a href="" class="btn_window" target="_blank"><i class="mco_window"></i><span>새창보기</span></a>
+							</div>
+							<div class="mm_breadcrumb">
+								<i class="mco_breadcrumb"></i>
+								<ol>
+									<li><i class="mco_next __next_sm__"></i><span>상점 관리</span></li>
+									<li><i class="mco_next __next_sm__"></i><span>셀러설정 관리</span></li>
+									<li><i class="mco_next __next_sm__"></i><span>셀러정보 수정</span></li>
+								</ol>
+							</div>
+						</div>
+						<!--// 페이지상단 -->
+
+						<div class="mm_tabmenu __tabmenu_auto__">
+                            <!-- (D) 선택된 탭메뉴에 '__tab-on' 클래스와 '선택됨' 타이틀을 추가합니다. -->
+                            <ul>
+								<li><a href="#" class="__tab-on" title="선택됨" data-href="{ '_type': 'link' }"><span>셀러 기본정보</span></a></li>
+                                <li><a href="#"  data-href="{ '_type': 'link' }"><span>매니저/담당자 정보</span></a></li>
+                                <li><a href="#" data-href="{ '_type': 'link' }"><span>출고지 관리</span></a></li>
+                                <li><a href="#" data-href="{ '_type': 'link' }"><span>반품/교환지 관리</span></a></li>
+                                <li><a href="#" data-href="{ '_type': 'link' }"><span>배송정책/방문 수령지 관리</span></a></li>
+                                <li><a href="#" data-href="{ '_type': 'link' }"><span>셀러 수수료 및 계좌정보</span></a></li>
+                            </ul>
+                        </div>
+
+                        <section class="mm_section">
+                            <h3 class="mm_heading"><i class="mco_heading"></i><span>셀러 기본정보</span></h3>
+                            <div class="mm_formbox">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row"><span>셀러명</span><i class="mco_required" title="필수입력"></i></th>
+                                            <td>
+                                                <div class="mm_form-text">
+                                                    <button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+                                                    <label>
+                                                        <input type="text" class="textfield" value="아이스탁" readonly><i class="bg_text"></i>
+                                                        <span class="text_placeholder mm_ir-blind">셀러명</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+										<tr>
+                                            <th scope="row"><span>아이디</span><i class="mco_required" title="필수입력"></i></th>
+                                            <td>
+												<div class="mm_form-text">
+													<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+													<label>
+														<input type="text" class="textfield" value="istock" readonly><i class="bg_text"></i>
+														<span class="text_placeholder mm_ir-blind">아이디</span>
+													</label>
+												</div>
+                                            </td>
+                                        </tr>
+										<tr>
+											<th scope="row"><span>비밀번호</span><i class="mco_required" title="필수입력"></i></th>
+											<td>
+												<div class="mm_formbox-password">
+													<label class="mm_form-check">
+														<input type="checkbox" checked>
+														<b class="mm_box-block">
+															<i class="mco_form-check"></i>
+															<span class="text_label">수정</span>
+														</b>
+													</label>
+													<div class="mm_form-text">
+														<button type="button" class="btn_text-pw"><i class="mco_hide"></i><span class="mm_ir-blind">비밀번호 보기</span></button>
+														<label>
+															<input type="password" class="textfield"><i class="bg_text"></i>
+															<span class="text_placeholder">변경할 비밀번호를 입력하세요</span>
+														</label>
+													</div>
+													<div class="mm_form-text">
+														<button type="button" class="btn_text-pw"><i class="mco_hide"></i><span class="mm_ir-blind">비밀번호 보기</span></button>
+														<label>
+															<input type="password" class="textfield"><i class="bg_text"></i>
+															<span class="text_placeholder">비밀번호를 한번 더 입력하세요</span>
+														</label>
+													</div>
+												</div>
+											</td>
+										</tr>
+                                        <tr>
+                                            <th scope="row"><span>본사 사업자명</span><i class="mco_required" title="필수입력"></i></th>
+                                            <td>
+                                                <div class="mm_form-text">
+                                                    <button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+                                                    <label>
+                                                        <input type="text" class="textfield" value="아이스탁" readonly><i class="bg_text"></i>
+                                                        <span class="text_placeholder mm_ir-blind">본사 사업자명</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span>본사 사업자 번호</span><i class="mco_required" title="필수입력"></i></th>
+                                            <td>
+                                                <div class="mm_formbox-linked">
+                                                    <div class="mm_form-text">
+                                                        <button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+                                                        <label>
+                                                            <input type="text" class="textfield" value="123" readonly><i class="bg_text"></i>
+                                                            <span class="text_placeholder mm_ir-blind">사업자 번호 앞자리</span>
+                                                        </label>
+                                                    </div>
+                                                    <i class="text_tilde">-</i>
+                                                    <div class="mm_form-text">
+                                                        <button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+                                                        <label>
+                                                            <input type="text" class="textfield" value="12" readonly><i class="bg_text"></i>
+                                                            <span class="text_placeholder mm_ir-blind">사업자 번호 가운데자리</span>
+                                                        </label>
+                                                    </div>
+                                                    <i class="text_tilde">-</i>
+                                                    <div class="mm_form-text">
+                                                        <button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+                                                        <label>
+                                                            <input type="text" class="textfield" value="12345" readonly><i class="bg_text"></i>
+                                                            <span class="text_placeholder mm_ir-blind">사업자 번호 뒷자리</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span>본사 업태</span><i class="mco_required" title="필수입력"></i></th>
+                                            <td>
+                                                <div class="mm_form-text">
+                                                    <button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+                                                    <label>
+                                                        <input type="text" class="textfield" value="의류" readonly><i class="bg_text"></i>
+                                                        <span class="text_placeholder mm_ir-blind">본사 업태</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span>본사 업종</span><i class="mco_required" title="필수입력"></i></th>
+                                            <td>
+                                                <div class="mm_form-text">
+                                                    <button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+                                                    <label>
+                                                        <input type="text" class="textfield" value="의류" readonly><i class="bg_text"></i>
+                                                        <span class="text_placeholder mm_ir-blind">본사 업종</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span>본사 사업장 주소</span><i class="mco_required" title="필수입력"></i></th>
+                                            <td>
+                                                <div class="mm_formbox-address">
+                                                    <div class="mm_formbox-address-postcode">
+                                                        <div class="mm_form-text">
+                                                            <button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+                                                            <label>
+                                                                <input type="text" class="textfield" value="12-123" readonly><i class="bg_text"></i>
+                                                                <span class="text_placeholder mm_ir-blind">우편번호</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mm_form-text">
+                                                        <button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+                                                        <label>
+                                                            <input type="text" class="textfield" value="서울특별시 강남구 서초동" readonly><i class="bg_text"></i>
+                                                            <span class="text_placeholder">검색주소</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="mm_form-text">
+                                                        <button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+                                                        <label>
+                                                            <input type="text" class="textfield" value="123-12번지 1층" readonly><i class="bg_text"></i>
+                                                            <span class="text_placeholder">상세주소</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span>매니저부담&#38;프로모션<br>비용 공제/입금 선택</span><i class="mco_required" title="필수입력"></i></th>
+                                            <td>
+                                                <div class="mm_radio-list">
+                                                    <ul>
+                                                        <li>
+                                                            <label class="mm_form-radio">
+                                                                <input type="radio" name="seller_promo_deduction" disabled checked>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-radio"></i>
+                                                                    <span class="text_label">공제</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="mm_form-radio">
+                                                                <input type="radio" name="seller_promo_deduction" disabled>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-radio"></i>
+                                                                    <span class="text_label">입금</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span>이메일<small>(세금계산서 발행용)</small></span><i class="mco_required" title="필수입력"></i></th>
+                                            <td>
+                                                <div class="mm_form-text">
+                                                    <button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+                                                    <label>
+                                                        <input type="text" class="textfield" value="istock@istock.com" readonly><i class="bg_text"></i>
+                                                        <span class="text_placeholder mm_ir-blind">이메일</span>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+										<tr>
+											<th scope="row"><span>브랜드</span><i class="mco_required" title="필수입력"></i></th>
+											<td>
+												<div class="mm_form-text">
+                                                    <button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+                                                    <label>
+                                                        <input type="text" class="textfield" value="ADIDAS" readonly><i class="bg_text"></i>
+                                                        <span class="text_placeholder mm_ir-blind">브랜드</span>
+                                                    </label>
+                                                </div>
+											</td>
+										</tr>
+                                        <tr>
+                                            <th scope="row"><span>대표 분류</span><i class="mco_required" title="필수입력"></i></th>
+                                            <td>
+												<div class="mm_form-select">
+													<label>
+														<select disabled>
+															<option value="">여성패션</option>
+														</select>
+														<i class="mco_form-select"></i>
+													</label>
+												</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span>API연동 제외</span></th>
+                                            <td>
+                                                <div class="mm_check-list">
+                                                    <ul>
+                                                        <li>
+                                                            <label class="mm_form-check">
+                                                                <input type="checkbox" name="seller_api-exception" disabled checked>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-check"></i>
+                                                                    <span class="text_label">옥션 API</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="mm_form-check">
+                                                                <input type="checkbox" name="seller_api-exception" disabled>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-check"></i>
+                                                                    <span class="text_label">지마켓 API</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="mm_form-check">
+                                                                <input type="checkbox" name="seller_api-exception" disabled>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-check"></i>
+                                                                    <span class="text_label">인터파크 API</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="mm_form-check">
+                                                                <input type="checkbox" name="seller_api-exception" disabled>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-check"></i>
+                                                                    <span class="text_label">11번가 API</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="mm_form-check">
+                                                                <input type="checkbox" name="seller_api-exception" disabled>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-check"></i>
+                                                                    <span class="text_label">패션플러스 API</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="mm_form-check">
+                                                                <input type="checkbox" name="seller_api-exception" disabled>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-check"></i>
+                                                                    <span class="text_label">GS Shop API</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="mm_form-check">
+                                                                <input type="checkbox" name="seller_api-exception" disabled>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-check"></i>
+                                                                    <span class="text_label">하프클럽 API</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="mm_form-check">
+                                                                <input type="checkbox" name="seller_api-exception" disabled>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-check"></i>
+                                                                    <span class="text_label">Npay</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="mm_form-check">
+                                                                <input type="checkbox" name="seller_api-exception" disabled>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-check"></i>
+                                                                    <span class="text_label">굿스플로</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="mm_form-check">
+                                                                <input type="checkbox" name="seller_api-exception" disabled>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-check"></i>
+                                                                    <span class="text_label">EC 모니터</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span>방문수령지 사용유무</span></th>
+                                            <td>
+                                                <div class="mm_radio-list">
+                                                    <ul>
+														<li>
+                                                            <label class="mm_form-radio">
+                                                                <input type="radio" name="seller_ship_visited" disabled checked>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-radio"></i>
+                                                                    <span class="text_label">사용안함</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="mm_form-radio">
+                                                                <input type="radio" name="seller_ship_visited" disabled>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-radio"></i>
+                                                                    <span class="text_label">사용</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span>상품 자동승인 여부</span></th>
+                                            <td>
+                                                <div class="mm_radio-list">
+                                                    <ul>
+                                                        <li>
+                                                            <label class="mm_form-radio">
+                                                                <input type="radio" name="seller_auto_approval" disabled checked>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-radio"></i>
+                                                                    <span class="text_label">자동 승인</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="mm_form-radio">
+                                                                <input type="radio" name="seller_auto_approval" disabled>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-radio"></i>
+                                                                    <span class="text_label">수동 승인</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span>브랜드 관리자 설정</span><i class="mco_required" title="필수입력"></i></th>
+                                            <td>
+                                                <table>
+                                                	<tbody>
+                                                		<tr>
+                                                			<td>
+																<div class="mm_radio-list">
+				                                                    <ul>
+				                                                        <li>
+				                                                            <label class="mm_form-radio">
+				                                                                <input type="radio" name="seller_brand_manager" data-radio="{ 'syncer': '.mm_syncer-brand-seller' }" disabled checked>
+				                                                                <b class="mm_box-block">
+				                                                                    <i class="mco_form-radio"></i>
+				                                                                    <span class="text_label">셀러</span>
+				                                                                </b>
+				                                                            </label>
+				                                                        </li>
+				                                                        <li>
+				                                                            <label class="mm_form-radio">
+				                                                                <input type="radio" name="seller_brand_manager" disabled>
+				                                                                <b class="mm_box-block">
+				                                                                    <i class="mco_form-radio"></i>
+				                                                                    <span class="text_label">브랜드 관리자</span>
+				                                                                </b>
+				                                                            </label>
+				                                                        </li>
+				                                                    </ul>
+				                                                </div>
+                                                			</td>
+                                                		</tr>
+														<tr class="mm_syncer-brand-seller">
+															<td>
+																<div class="mm_form-select">
+																	<label>
+																		<select disabled>
+																			<option value="">엔터식스</option>
+																		</select>
+																		<i class="mco_form-select"></i>
+																	</label>
+																</div>
+															</td>
+														</tr>
+                                                	</tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span>배송 유형</span><i class="mco_required" title="필수입력"></i></th>
+                                            <td>
+                                                <div class="mm_radio-list">
+                                                    <ul>
+                                                        <li>
+                                                            <label class="mm_form-radio">
+                                                                <input type="radio" name="seller_delivery_type" disabled checked>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-radio"></i>
+                                                                    <span class="text_label">엔터식스 배송</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="mm_form-radio">
+                                                                <input type="radio" name="seller_delivery_type" disabled>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-radio"></i>
+                                                                    <span class="text_label">업체 배송</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row"><span>상품가격 노출 정책 설정</span><i class="mco_required" title="필수입력"></i></th>
+                                            <td>
+                                                <div class="mm_radio-list">
+                                                    <ul>
+                                                        <li>
+                                                            <label class="mm_form-radio">
+                                                                <input type="radio" name="seller_price_exposure" disabled checked>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-radio"></i>
+                                                                    <span class="text_label">3단 구조 노출(정가,판매가,할인가)</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <label class="mm_form-radio">
+                                                                <input type="radio" name="seller_price_exposure" disabled>
+                                                                <b class="mm_box-block">
+                                                                    <i class="mco_form-radio"></i>
+                                                                    <span class="text_label">2단 구조 노출(판매가, 할인가)</span>
+                                                                </b>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+										<tr>
+                                            <th scope="row"><span>지점 설정</span><i class="mco_required" title="필수입력"></i></th>
+                                            <td>
+												<div class="mm_form-select">
+													<label>
+														<select disabled>
+															<option value="">지점선택</option>
+														</select>
+														<i class="mco_form-select"></i>
+													</label>
+												</div>
+                                            </td>
+                                        </tr>
+										<tr>
+											<th scope="row"><span>인하펀칭 사용유무</span></th>
+											<td>
+												<table>
+													<tr>
+														<td>
+															<div class="mm_radio-list">
+																<ul>
+																	<li>
+																		<label class="mm_form-radio">
+																			<input type="radio" name="seller_discount-use" disabled checked>
+																			<b class="mm_box-block">
+																				<i class="mco_form-radio"></i>
+																				<span class="text_label">사용안함</span>
+																			</b>
+																		</label>
+																	</li>
+																	<li>
+																		<label class="mm_form-radio">
+																			<input type="radio" name="seller_discount-use" data-radio="{ 'syncer': '.mm_syncer-discount-use' }" disabled>
+																			<b class="mm_box-block">
+																				<i class="mco_form-radio"></i>
+																				<span class="text_label">사용</span>
+																			</b>
+																		</label>
+																	</li>
+																</ul>
+															</div>
+														</td>
+													</tr>
+
+													<!-- 인하펀칭 사용 -->
+													<tr class="mm_syncer-discount-use">
+														<td>
+															<div class="mm_form-text __text_measure__">
+																<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+																<label>
+																	<input type="text" class="textfield"><i class="bg_text"></i>
+																	<span class="text_placeholder">숫자만 입력</span>
+																</label>
+																<span class="text_measure">%</span>
+															</div>
+														</td>
+													</tr>
+													<!--// 인하펀칭 사용 -->
+												</table>
+											</td>
+                                        </tr>
+										<tr>
+											<th scope="row"><span>사업자등록증 사본</span><i class="mco_required" title="필수입력"></i></th>
+											<td>
+												<div class="mm_formbox-image">
+													<button type="button" class="mm_btn __btn_sm_tertiary__ btn_find-image" onclick="$(this).siblings('.mm_form-image').find('[type=file]').click();"><span>이미지 찾기</span></button>
+													<span class="text_limit">최대 2MB<br>확장자 제한없음</span>
+													<div class="mm_form-image">
+														<button type="button" class="btn_remove"><i class="mco_form-image-remove"></i><span class="mm_ir-blind">파일삭제</span></button>
+														<label>
+															<input type="file" accept="image/*" data-file="{ '_fileSize': 2000 }">
+															<b class="mm_form-image-box">
+																<span class="text_label">미리보기 영역</span>
+															</b>
+															<b class="mm_form-image-preview"></b>
+														</label>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><span>하프클럽 브랜드 매출코드</span></th>
+											<td>
+												<table>
+													<tbody>
+														<tr>
+															<th scope="row"><span>매출코드</span></th>
+															<td>
+																<div class="mm_form-text">
+				                                                    <button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+				                                                    <label>
+				                                                        <input type="text" class="textfield"><i class="bg_text"></i>
+				                                                        <span class="text_placeholder mm_ir-blind">매출코드</span>
+				                                                    </label>
+				                                                </div>
+															</td>
+														</tr>
+														<tr>
+															<th scope="row"><span>매출카테고리</span></th>
+															<td>
+																<div class="mm_form-text">
+				                                                    <button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+				                                                    <label>
+				                                                        <input type="text" class="textfield"><i class="bg_text"></i>
+				                                                        <span class="text_placeholder mm_ir-blind">매출코드</span>
+				                                                    </label>
+				                                                </div>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><span>매장 전경사진</span></th>
+											<td>
+												<div class="mm_formbox-image">
+													<button type="button" class="mm_btn __btn_sm_tertiary__ btn_find-image" onclick="$(this).siblings('.mm_form-image').find('[type=file]').click();"><span>이미지 찾기</span></button>
+													<span class="text_limit">가로형 이미지만 등록 가능<br>확장자 JPG, PNG, GIF 등록 가능</span>
+													<div class="mm_form-image __image_auto__">
+														<button type="button" class="btn_remove"><i class="mco_form-image-remove"></i><span class="mm_ir-blind">파일삭제</span></button>
+														<label>
+															<input type="file" accept="image/.gif, .jpg, .png" data-file="{ '_orientation': 'landscape' }">
+															<b class="mm_form-image-box">
+																<span class="text_label">미리보기 영역</span>
+															</b>
+															<b class="mm_form-image-preview"></b>
+														</label>
+													</div>
+													<div class="mm_form-text">
+														<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+														<label>
+															<input type="text" class="textfield" maxlength="10"><i class="bg_text"></i>
+															<span class="text_placeholder">매장명 (띄어쓰기 포함 최대 10글자)</span>
+														</label>
+													</div>
+												</div>
+											</td>
+										</tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+						<div class="mm_foot">
+							<div class="mm_btngroup">
+								<div class="mm_box-inline">
+									<a href="#" class="mm_btn __btn_lg__" data-href="{ '_type': 'link' }"><span>취소하기</span></a>
+									<button type="button" class="mm_btn __btn_lg_secondary__"><span>수정하기</span></button>
+								</div>
+							</div>
+						</div>
+
+						<!-- 페이지 스크립트 -->
+						<!-- <script src="../js/.js"></script> -->
+					</div>
+					<!--// 본문 -->
+				</div>
+			</div>
+			<!--// 내용 -->
+		</div>
+		<!--// 화면 -->
+	</div>
+
+	<!-- 공통 스크립트 -->
+	<script src="../js/app_common.js"></script>
+	<script src="../js/app_page-common.js"></script>
+</body>
+</html>

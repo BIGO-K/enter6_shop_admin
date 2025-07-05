@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>(프린트) 상품 발주서(본사용) - 엔터식스 온라인몰 관리자</title>
+
+	<!-- 라이브러리 css -->
+	<link rel="stylesheet" href="../css/libs/fontello-custom.css">
+	<link rel="stylesheet" href="../css/libs/swiper-4.3.3.min.css">
+	<link rel="stylesheet" href="../css/libs/pikaday.css">
+	<link rel="stylesheet" href="../css/libs/overlayscrollbars-1.5.1.min.css">
+
+	<!-- 페이지 css -->
+	<link rel="stylesheet" class="link_font" resource="../css/fonts.css">
+	<link rel="stylesheet" href="../css/app.css">
+
+	<!-- (D) 스크립트(폴리필, 라이브러리)는 요청을 줄이기 위해 combind + minify를 적용해주세요. -->
+	<!-- 폴리필 스크립트 -->
+	<script src="../js/polyfill/es6-promise.auto-4.2.4.min.js"></script>
+
+	<!-- 라이브러리 스크립트 -->
+	<script src="../js/libs/webfontloader-1.6.28.min.js"></script>
+	<script src="../js/libs/jquery-3.3.1.slim.min.js"></script>
+	<script src="../js/libs/axios-0.18.0.min.js"></script>
+	<script src="../js/libs/underscore-1.9.1.min.js"></script>
+	<script src="../js/libs/load-image.all-2.19.0.min.js"></script>
+	<script src="../js/libs/swiper-4.3.3.min.js"></script>
+	<script src="../js/libs/tweenmax-2.0.1.min.js"></script>
+	<script src="../js/libs/moment-2.22.2.min.js"></script>
+	<script src="../js/libs/pikaday-1.6.1.min.js"></script>
+	<script src="../js/libs/sortable-1.9.0.min.js"></script>
+	<script src="../js/libs/overlayscrollbars-1.5.1.min.js"></script>
+	<script src="../js/libs/chart-2.7.2.min.js"></script>
+	<script src="../js/libs/ckeditor.full-4.10.0/ckeditor.js"></script>
+
+	<!-- (D) 페이지 공통 스크립트는 body 하단, 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app __app_print__">
+		<!-- 인쇄단락 -->
+		<article class="mm_print">
+			<h2 class="mm_strapline"><span>상품 발주서(본사용) - 1/2</span></h2>
+			
+			<!-- 업체정보 -->
+			<section class="mm_section">
+				<h3 class="mm_heading"><i class="mco_heading"></i><span>업체정보</span></h3>
+				<div class="mm_list">
+					<table>
+						<thead>
+							<tr>
+								<th colspan="4" scope="colgroup"><span>매장정보</span></th>
+								<th rowspan="2" scope="col"><span>유의사항</span></th>
+							</tr>
+							<tr>
+								<th scope="col"><span>업체명</span></th>
+								<th scope="col"><span>품번</span></th>
+								<th scope="col"><span>점포코드</span></th>
+								<th scope="col"><span>아이디</span></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><span>강변테크노_EBLIN</span></td>
+								<td><span>001642</span></td>
+								<td><span>11</span></td>
+								<td><span>100057_1837</span></td>
+								<td><p>-</p></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+			<!--// 업체정보 -->
+			
+			<!-- 주문제품정보 -->
+			<section class="mm_section">
+				<h3 class="mm_heading"><i class="mco_heading"></i><span>주문제품정보</span></h3>
+				<div class="mm_list">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col"><span>NO.</span></th>
+								<th scope="col"><span>타입</span></th>
+								<th scope="col"><span>주문번호(상세번호)<br>/입금일자</span></th>
+								<th scope="col"><span>상품이미지</span></th>
+								<th scope="col"><span>상품명/품번</span></th>
+								<th scope="col"><span>옵션</span></th>
+								<th scope="col"><span>수량</span></th>
+								<th scope="col"><span>판매가</span></th>
+								<th scope="col"><span>수취인정보</span></th>
+								<th scope="col"><span>판매처</span></th>
+								<th scope="col"><span>주문구분</span></th>
+								<th scope="col"><span>비고</span></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><span>1</span></td>
+								<td><span>-</span></td>
+								<td><span>201711252326-0000948(793888)<br>2017-11-25 23:25:49</span></td>
+								<td><i class="image_product"><img src="../images/_sample/product_list4.png" alt="상품이미지"></i></td>
+								<td><p>에블린_11월전략_퍼플 홀리데이_큰컴 레이스팬티 세트<br>EBBR649131:</p></td>
+								<td><span>80C-90-1개</span></td>
+								<td><span>1개</span></td>
+								<td><span>30,000원</span></td>
+								<td><span>김숙경<br>010-****-5750</span></td>
+								<td><span>11번가 API</span></td>
+								<td><span>단포</span></td>
+								<td><span>-</span></td>
+							</tr>
+							<tr>
+								<td><span>2</span></td>
+								<td><span>-</span></td>
+								<td><span>201711252326-0000948(793888)<br>2017-11-25 23:25:49</span></td>
+								<td><i class="image_product"><img src="../images/_sample/product_list4.png" alt="상품이미지"></i></td>
+								<td><p>게스 [F/W신상특가] 단단이 다운 점퍼<br>MH4W9895 / YH4W9895.</p></td>
+								<td><span>여자XS+LIGHT PINK-1개</span></td>
+								<td><span>1개</span></td>
+								<td><span>194,600원</span></td>
+								<td><span>김숙경<br>010-****-5750</span></td>
+								<td><span>패션플러스 API</span></td>
+								<td><span>합포</span></td>
+								<td><span>[교환]</span></td>
+							</tr>
+							<tr>
+								<td><span>3</span></td>
+								<td><span>-</span></td>
+								<td><span>201711252326-0000948(793888)<br>2017-11-25 23:25:49</span></td>
+								<td><i class="image_product"><img src="../images/_sample/product_list4.png" alt="상품이미지"></i></td>
+								<td><p>에블린_11월전략_퍼플 홀리데이_큰컴 레이스팬티 세트<br>EBBR649131:</p></td>
+								<td><span>80C-90-1개</span></td>
+								<td><span>1개</span></td>
+								<td><span>30,000원</span></td>
+								<td><span>김숙경<br>010-****-5750</span></td>
+								<td><span>11번가 API</span></td>
+								<td><span>단포</span></td>
+								<td><span>-</span></td>
+							</tr>
+							<tr>
+								<td><span>4</span></td>
+								<td><span>-</span></td>
+								<td><span>201711252326-0000948(793888)<br>2017-11-25 23:25:49</span></td>
+								<td><i class="image_product"><img src="../images/_sample/product_list4.png" alt="상품이미지"></i></td>
+								<td><p>에블린_11월전략_퍼플 홀리데이_큰컴 레이스팬티 세트<br>EBBR649131:</p></td>
+								<td><span>80C-90-1개</span></td>
+								<td><span>1개</span></td>
+								<td><span>30,000원</span></td>
+								<td><span>김숙경<br>010-****-5750</span></td>
+								<td><span>11번가 API</span></td>
+								<td><span>단포</span></td>
+								<td><span>-</span></td>
+							</tr>
+							<tr>
+								<td><span>5</span></td>
+								<td><span>-</span></td>
+								<td><span>201711252326-0000948(793888)<br>2017-11-25 23:25:49</span></td>
+								<td><i class="image_product"><img src="../images/_sample/product_list4.png" alt="상품이미지"></i></td>
+								<td><p>에블린_11월전략_퍼플 홀리데이_큰컴 레이스팬티 세트<br>EBBR649131:</p></td>
+								<td><span>80C-90-1개</span></td>
+								<td><span>1개</span></td>
+								<td><span>30,000원</span></td>
+								<td><span>김숙경<br>010-****-5750</span></td>
+								<td><span>11번가 API</span></td>
+								<td><span>단포</span></td>
+								<td><span>-</span></td>
+							</tr>
+							<tr>
+								<td><span>6</span></td>
+								<td><span>-</span></td>
+								<td><span>201711252326-0000948(793888)<br>2017-11-25 23:25:49</span></td>
+								<td><i class="image_product"><img src="../images/_sample/product_list4.png" alt="상품이미지"></i></td>
+								<td><p>에블린_11월전략_퍼플 홀리데이_큰컴 레이스팬티 세트<br>EBBR649131:</p></td>
+								<td><span>80C-90-1개</span></td>
+								<td><span>1개</span></td>
+								<td><span>30,000원</span></td>
+								<td><span>김숙경<br>010-****-5750</span></td>
+								<td><span>11번가 API</span></td>
+								<td><span>단포</span></td>
+								<td><span>-</span></td>
+							</tr>
+							<tr>
+								<td><span>7</span></td>
+								<td><span>-</span></td>
+								<td><span>201711252326-0000948(793888)<br>2017-11-25 23:25:49</span></td>
+								<td><i class="image_product"><img src="../images/_sample/product_list4.png" alt="상품이미지"></i></td>
+								<td><p>에블린_11월전략_퍼플 홀리데이_큰컴 레이스팬티 세트<br>EBBR649131:</p></td>
+								<td><span>80C-90-1개</span></td>
+								<td><span>1개</span></td>
+								<td><span>30,000원</span></td>
+								<td><span>김숙경<br>010-****-5750</span></td>
+								<td><span>11번가 API</span></td>
+								<td><span>단포</span></td>
+								<td><span>-</span></td>
+							</tr>
+							<tr>
+								<td><span>8</span></td>
+								<td><span>-</span></td>
+								<td><span>201711252326-0000948(793888)<br>2017-11-25 23:25:49</span></td>
+								<td><i class="image_product"><img src="../images/_sample/product_list4.png" alt="상품이미지"></i></td>
+								<td><p>에블린_11월전략_퍼플 홀리데이_큰컴 레이스팬티 세트<br>EBBR649131:</p></td>
+								<td><span>80C-90-1개</span></td>
+								<td><span>1개</span></td>
+								<td><span>30,000원</span></td>
+								<td><span>김숙경<br>010-****-5750</span></td>
+								<td><span>11번가 API</span></td>
+								<td><span>단포</span></td>
+								<td><span>-</span></td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<th colspan="6" scope="row"><span>합계</span></th>
+								<td><span>8개</span></td>
+								<td colspan="5"><span>1,395,600원</span></td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</section>
+			<!--// 주문제품정보 -->
+			
+			<div class="mm_print-foot">
+				<p>20 <span>년</span> <span>월</span> <span>일</span></p>
+				<p>상기 품목을 확인하였습니다.</p>
+				<p>엔터식스 강변테크노_EBLIN <span class="text_sign">(인)</span></p>
+			</div>
+		</article>
+		<!--// 인쇄단락 -->
+		
+		<!-- 인쇄단락 -->
+		<article class="mm_print">
+			<h2 class="mm_strapline"><span>상품 발주서(본사용) - 2/2</span></h2>
+			
+			<!-- 업체정보 -->
+			<section class="mm_section">
+				<h3 class="mm_heading"><i class="mco_heading"></i><span>업체정보</span></h3>
+				<div class="mm_list">
+					<table>
+						<thead>
+							<tr>
+								<th colspan="4" scope="colgroup"><span>매장정보</span></th>
+								<th rowspan="2" scope="col"><span>유의사항</span></th>
+							</tr>
+							<tr>
+								<th scope="col"><span>업체명</span></th>
+								<th scope="col"><span>품번</span></th>
+								<th scope="col"><span>점포코드</span></th>
+								<th scope="col"><span>아이디</span></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><span>강변테크노_EBLIN</span></td>
+								<td><span>001642</span></td>
+								<td><span>11</span></td>
+								<td><span>100057_1837</span></td>
+								<td><p>-</p></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+			<!--// 업체정보 -->
+			
+			<!-- 주문제품정보 -->
+			<section class="mm_section">
+				<h3 class="mm_heading"><i class="mco_heading"></i><span>주문제품정보</span></h3>
+				<div class="mm_list">
+					<table>
+						<thead>
+							<tr>
+								<th scope="col"><span>NO.</span></th>
+								<th scope="col"><span>타입</span></th>
+								<th scope="col"><span>주문번호(상세번호)<br>/입금일자</span></th>
+								<th scope="col"><span>상품이미지</span></th>
+								<th scope="col"><span>상품명/품번</span></th>
+								<th scope="col"><span>옵션</span></th>
+								<th scope="col"><span>수량</span></th>
+								<th scope="col"><span>판매가</span></th>
+								<th scope="col"><span>수취인정보</span></th>
+								<th scope="col"><span>판매처</span></th>
+								<th scope="col"><span>주문구분</span></th>
+								<th scope="col"><span>비고</span></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><span>1</span></td>
+								<td><span>-</span></td>
+								<td><span>201711252326-0000948(793888)<br>2017-11-25 23:25:49</span></td>
+								<td><i class="image_product"><img src="../images/_sample/product_list4.png" alt="상품이미지"></i></td>
+								<td><p>에블린_11월전략_퍼플 홀리데이_큰컴 레이스팬티 세트<br>EBBR649131:</p></td>
+								<td><span>80C-90-1개</span></td>
+								<td><span>1개</span></td>
+								<td><span>30,000원</span></td>
+								<td><span>김숙경<br>010-****-5750</span></td>
+								<td><span>11번가 API</span></td>
+								<td><span>단포</span></td>
+								<td><span>-</span></td>
+							</tr>
+							<tr>
+								<td><span>2</span></td>
+								<td><span>-</span></td>
+								<td><span>201711252326-0000948(793888)<br>2017-11-25 23:25:49</span></td>
+								<td><i class="image_product"><img src="../images/_sample/product_list4.png" alt="상품이미지"></i></td>
+								<td><p>게스 [F/W신상특가] 단단이 다운 점퍼<br>MH4W9895 / YH4W9895.</p></td>
+								<td><span>여자XS+LIGHT PINK-1개</span></td>
+								<td><span>1개</span></td>
+								<td><span>194,600원</span></td>
+								<td><span>김숙경<br>010-****-5750</span></td>
+								<td><span>패션플러스 API</span></td>
+								<td><span>합포</span></td>
+								<td><span>[교환]</span></td>
+							</tr>
+							<tr>
+								<td><span>3</span></td>
+								<td><span>-</span></td>
+								<td><span>201711252326-0000948(793888)<br>2017-11-25 23:25:49</span></td>
+								<td><i class="image_product"><img src="../images/_sample/product_list4.png" alt="상품이미지"></i></td>
+								<td><p>에블린_11월전략_퍼플 홀리데이_큰컴 레이스팬티 세트<br>EBBR649131:</p></td>
+								<td><span>80C-90-1개</span></td>
+								<td><span>1개</span></td>
+								<td><span>30,000원</span></td>
+								<td><span>김숙경<br>010-****-5750</span></td>
+								<td><span>11번가 API</span></td>
+								<td><span>단포</span></td>
+								<td><span>-</span></td>
+							</tr>
+							<tr>
+								<td><span>4</span></td>
+								<td><span>-</span></td>
+								<td><span>201711252326-0000948(793888)<br>2017-11-25 23:25:49</span></td>
+								<td><i class="image_product"><img src="../images/_sample/product_list4.png" alt="상품이미지"></i></td>
+								<td><p>에블린_11월전략_퍼플 홀리데이_큰컴 레이스팬티 세트<br>EBBR649131:</p></td>
+								<td><span>80C-90-1개</span></td>
+								<td><span>1개</span></td>
+								<td><span>30,000원</span></td>
+								<td><span>김숙경<br>010-****-5750</span></td>
+								<td><span>11번가 API</span></td>
+								<td><span>단포</span></td>
+								<td><span>-</span></td>
+							</tr>
+							<tr>
+								<td><span>5</span></td>
+								<td><span>-</span></td>
+								<td><span>201711252326-0000948(793888)<br>2017-11-25 23:25:49</span></td>
+								<td><i class="image_product"><img src="../images/_sample/product_list4.png" alt="상품이미지"></i></td>
+								<td><p>에블린_11월전략_퍼플 홀리데이_큰컴 레이스팬티 세트<br>EBBR649131:</p></td>
+								<td><span>80C-90-1개</span></td>
+								<td><span>1개</span></td>
+								<td><span>30,000원</span></td>
+								<td><span>김숙경<br>010-****-5750</span></td>
+								<td><span>11번가 API</span></td>
+								<td><span>단포</span></td>
+								<td><span>-</span></td>
+							</tr>
+							<tr>
+								<td><span>6</span></td>
+								<td><span>-</span></td>
+								<td><span>201711252326-0000948(793888)<br>2017-11-25 23:25:49</span></td>
+								<td><i class="image_product"><img src="../images/_sample/product_list4.png" alt="상품이미지"></i></td>
+								<td><p>에블린_11월전략_퍼플 홀리데이_큰컴 레이스팬티 세트<br>EBBR649131:</p></td>
+								<td><span>80C-90-1개</span></td>
+								<td><span>1개</span></td>
+								<td><span>30,000원</span></td>
+								<td><span>김숙경<br>010-****-5750</span></td>
+								<td><span>11번가 API</span></td>
+								<td><span>단포</span></td>
+								<td><span>-</span></td>
+							</tr>
+							<tr>
+								<td><span>7</span></td>
+								<td><span>-</span></td>
+								<td><span>201711252326-0000948(793888)<br>2017-11-25 23:25:49</span></td>
+								<td><i class="image_product"><img src="../images/_sample/product_list4.png" alt="상품이미지"></i></td>
+								<td><p>에블린_11월전략_퍼플 홀리데이_큰컴 레이스팬티 세트<br>EBBR649131:</p></td>
+								<td><span>80C-90-1개</span></td>
+								<td><span>1개</span></td>
+								<td><span>30,000원</span></td>
+								<td><span>김숙경<br>010-****-5750</span></td>
+								<td><span>11번가 API</span></td>
+								<td><span>단포</span></td>
+								<td><span>-</span></td>
+							</tr>
+							<tr>
+								<td><span>8</span></td>
+								<td><span>-</span></td>
+								<td><span>201711252326-0000948(793888)<br>2017-11-25 23:25:49</span></td>
+								<td><i class="image_product"><img src="../images/_sample/product_list4.png" alt="상품이미지"></i></td>
+								<td><p>에블린_11월전략_퍼플 홀리데이_큰컴 레이스팬티 세트<br>EBBR649131:</p></td>
+								<td><span>80C-90-1개</span></td>
+								<td><span>1개</span></td>
+								<td><span>30,000원</span></td>
+								<td><span>김숙경<br>010-****-5750</span></td>
+								<td><span>11번가 API</span></td>
+								<td><span>단포</span></td>
+								<td><span>-</span></td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<th colspan="6" scope="row"><span>합계</span></th>
+								<td><span>8개</span></td>
+								<td colspan="5"><span>1,395,600원</span></td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</section>
+			<!--// 주문제품정보 -->
+			
+			<div class="mm_print-foot">
+				<p>20 <span>년</span> <span>월</span> <span>일</span></p>
+				<p>상기 품목을 확인하였습니다.</p>
+				<p>엔터식스 강변테크노_EBLIN <span class="text_sign">(인)</span></p>
+			</div>
+		</article>
+		<!--// 인쇄단락 -->
+	</div>
+	<script>
+		$(function() {
+			
+			// 프린트 시작
+			window.print();
+			
+		});
+	</script>
+
+	<!-- 공통 스크립트 -->
+	<script src="../js/app_common.js"></script>
+	<script src="../js/app_page-common.js"></script>
+</body>
+</html>

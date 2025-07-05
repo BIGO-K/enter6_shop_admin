@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>(팝업) 입고검수 - 엔터식스 온라인몰 관리자</title>
+
+	<!-- 라이브러리 css -->
+	<link rel="stylesheet" href="../css/libs/fontello-custom.css">
+	<link rel="stylesheet" href="../css/libs/swiper-4.3.3.min.css">
+	<link rel="stylesheet" href="../css/libs/pikaday.css">
+	<link rel="stylesheet" href="../css/libs/overlayscrollbars-1.5.1.min.css">
+
+	<!-- 페이지 css -->
+	<link rel="stylesheet" class="link_font" resource="../css/fonts.css">
+	<link rel="stylesheet" href="../css/app.css">
+
+	<!-- (D) 스크립트(폴리필, 라이브러리)는 요청을 줄이기 위해 combind + minify를 적용해주세요. -->
+	<!-- 폴리필 스크립트 -->
+	<script src="../js/polyfill/es6-promise.auto-4.2.4.min.js"></script>
+
+	<!-- 라이브러리 스크립트 -->
+	<script src="../js/libs/webfontloader-1.6.28.min.js"></script>
+	<script src="../js/libs/jquery-3.3.1.slim.min.js"></script>
+	<script src="../js/libs/axios-0.18.0.min.js"></script>
+	<script src="../js/libs/underscore-1.9.1.min.js"></script>
+	<script src="../js/libs/load-image.all-2.19.0.min.js"></script>
+	<script src="../js/libs/swiper-4.3.3.min.js"></script>
+	<script src="../js/libs/tweenmax-2.0.1.min.js"></script>
+	<script src="../js/libs/moment-2.22.2.min.js"></script>
+	<script src="../js/libs/pikaday-1.6.1.min.js"></script>
+	<script src="../js/libs/sortable-1.9.0.min.js"></script>
+	<script src="../js/libs/overlayscrollbars-1.5.1.min.js"></script>
+	<script src="../js/libs/chart-2.7.2.min.js"></script>
+	<script src="../js/libs/ckeditor.full-4.10.0/ckeditor.js"></script>
+
+	<!-- (D) 페이지 공통 스크립트는 body 하단, 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app __app_popup__">
+		<!-- 스킵 -->
+		<nav class="mm_skip">
+			<ul>
+				<li><a href="#mm_body" data-href="anchor">본문바로가기</a></li>
+			</ul>
+		</nav>
+		<!-- 스킵 -->
+
+		<!-- 화면 -->
+		<div class="mm_view">
+			<!-- 헤더 -->
+			<div class="mm_header">
+				<h1 class="mm_title"><span>입고검수</span></h1>
+				<button type="button" class="btn_popup-close" onclick="mm.popup.close();">
+					<i class="mco_popup-close"></i>
+					<span class="mm_ir-blind">팝업닫기</span>
+				</button>
+			</div>
+			<!--// 헤더 -->
+
+			<!-- 내용 -->
+			<div id="mm_body" class="mm_page">
+				<div class="mm_scroller" data-scrollbar>
+					<!-- 본문 -->
+					<div class="mm_page-content">
+						<!-- (D) 실제 내용을 추가하는 부분입니다. -->
+
+						<!-- 검색 -->
+						<!-- (D) 검색영역을 접어놓으면 '__search-off' 클래스를 추가합니다. -->
+						<div class="mm_search">
+							<div class="mm_search-inner">
+								<div class="mm_formbox">
+									<table>
+										<tbody>
+											<tr>
+												<th scope="row"><span>상품 바코드 검색</span></th>
+												<td>
+													<div class="mm_form-text">
+														<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+														<label>
+															<input type="text" class="textfield" value="792696-1"><i class="bg_text"></i>
+															<span class="text_placeholder mm_ir-blind">상품 바코드 검색</span>
+														</label>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="mm_btngroup">
+									<div class="mm_box-inline">
+										<button type="button" class="mm_btn __btn_secondary__ btn_submit"><span>검색하기</span></button>
+										<button type="button" class="mm_btn btn_reload"><i class="mco_reload"></i><span class="mm_ir-blind">검색 초기화</span></button>
+									</div>
+								</div>
+							</div>
+							<button type="button" class="btn_open"><span class="mm_ir-blind">펼쳐보기</span></button>
+							<button type="button" class="btn_toggle"><i class="mco_up"></i><span class="mm_ir-blind">접어놓기</span></button>
+						</div>
+
+						<!-- (D) 정상 바코드 입력 후 검색 했을 시 노출됩니다. -->
+						<div class="m-popup-inspect-check">
+							<p><strong class="mm_text-primary-dark">792696-1</strong>의 주문 건이 정상적으로 처리되었습니다.</p>
+						</div>
+
+						<!-- (D) 이미 처리된 바코드 입력 후 검색 했을 시 노출됩니다. -->
+						<!-- <div class="m-popup-inspect-check">
+							<p><strong class="mm_text-primary-dark">792696-1</strong>의 주문 건은 이미 처리되었습니다.</p>
+						</div> -->
+
+						<section class="mm_section m-popup-inspect">
+							<h3 class="mm_heading">
+								<i class="mco_heading"></i><span>주문 내역</span>
+								<button type="button" class="mm_btn __btn_xs_primary__"><span>발송 처리</span></button>
+							</h3>
+							<div class="mm_formbox">
+								<table>
+									<tbody>
+										<tr>
+											<th scope="row"><span>주문번호</span></th>
+											<td>
+												<div class="mm_form-text">
+													<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+													<label>
+														<input type="text" class="textfield" value="201806141007-0000004" readonly><i class="bg_text"></i>
+														<span class="text_placeholder mm_ir-blind">주문번호</span>
+													</label>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><span>주문일자</span></th>
+											<td>
+												<div class="mm_form-text">
+													<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+													<label>
+														<input type="text" class="textfield" value="2018-09-14" readonly><i class="bg_text"></i>
+														<span class="text_placeholder mm_ir-blind">주문일자</span>
+													</label>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><span>주문자명</span></th>
+											<td>
+												<div class="mm_form-text">
+													<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+													<label>
+														<input type="text" class="textfield" value="홍길동" readonly><i class="bg_text"></i>
+														<span class="text_placeholder mm_ir-blind">주문자명</span>
+													</label>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><span>주문자 전화번호</span></th>
+											<td>
+												<div class="mm_form-text">
+													<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+													<label>
+														<input type="text" class="textfield" value="02-123-1234" readonly><i class="bg_text"></i>
+														<span class="text_placeholder mm_ir-blind">주문자 전화번호</span>
+													</label>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><span>수취인명</span></th>
+											<td>
+												<div class="mm_form-text">
+													<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+													<label>
+														<input type="text" class="textfield" value="김길동" readonly><i class="bg_text"></i>
+														<span class="text_placeholder mm_ir-blind">수취인명</span>
+													</label>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><span>수취인 핸드폰 번호</span></th>
+											<td>
+												<div class="mm_form-text">
+													<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+													<label>
+														<input type="text" class="textfield" value="010-1234-1234" readonly><i class="bg_text"></i>
+														<span class="text_placeholder mm_ir-blind">수취인 핸드폰 번호</span>
+													</label>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><span>배송지 주소</span></th>
+											<td>
+												<div class="mm_form-text __text_area__">
+													<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+													<label>
+														<textarea class="textfield" readonly>12-345
+서울특별시 동대문구 용두동 129-493
+롯데택배 청량리대리점 엔터식스 물류센터</textarea><i class="bg_text"></i>
+														<span class="text_placeholder mm_ir-blind">배송지 주소</span>
+													</label>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><span>배송문구</span></th>
+											<td>
+												<div class="mm_form-text">
+													<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+													<label>
+														<input type="text" class="textfield" value="깨질 수 있으니 조심히 배송해주세요." readonly><i class="bg_text"></i>
+														<span class="text_placeholder mm_ir-blind">배송문구</span>
+													</label>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row"><span>품목 목록</span></th>
+											<td>
+												<div class="mm_list m-popup-inspect-list">
+													<div class="mm_scroller __scroller_x__">
+														<table>
+															<thead>
+																<tr>
+																	<th scope="col"><span>품목/상품코드</span></th>
+																	<th scope="col"><span>업체명</span></th>
+																	<th scope="col"><span>상품명</span></th>
+																	<th scope="col"><span>옵션</span></th>
+																	<th scope="col"><span>입고/처리상태</span></th>
+																	<th scope="col"><span>배송타입</span></th>
+																	<th scope="col"><span>수량</span></th>
+																	<th scope="col"><span>체크수량</span></th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<td><span>AXTAM17448GYX</span></td>
+																	<td><span>강변테크노_나인스텝</span></td>
+																	<td><p>8017잔체크머메이드스커트<br>N18NK8304R</p></td>
+																	<td><span>색상,사이즈<br>:블랙,FREE</span></td>
+																	<td>
+																		<span>배송준비중<br>/ <strong class="mm_text-primary-dark">배송중</strong></span>
+																	</td>
+																	<td><span>택배</span></td>
+																	<td><span>1</span></td>
+																	<td><span>1</span></td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</section>
+
+						<!-- 페이지 스크립트 -->
+						<!-- <script src="../js/.js"></script> -->
+					</div>
+					<!--// 본문 -->
+				</div>
+			</div>
+			<!--// 내용 -->
+		</div>
+		<!--// 화면 -->
+	</div>
+
+	<!-- 공통 스크립트 -->
+	<script src="../js/app_common.js"></script>
+	<script src="../js/app_page-common.js"></script>
+</body>
+</html>

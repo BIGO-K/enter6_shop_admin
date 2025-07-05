@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"> -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no, address=no, email=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+	<!-- 소셜태그 -->
+	<meta property="og:title" content="">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<!--// 소셜태그 -->
+
+	<title>자주 쓰는 옵션수정 &#60; 자주 쓰는 옵션관리 &#60; 상품 분류관리 &#60; 상품 관리 - 엔터식스 온라인몰 셀러 중간관리자</title>
+
+	<!-- 라이브러리 css -->
+	<link rel="stylesheet" href="../css/libs/fontello-custom.css">
+	<link rel="stylesheet" href="../css/libs/swiper-4.3.3.min.css">
+	<link rel="stylesheet" href="../css/libs/pikaday.css">
+	<link rel="stylesheet" href="../css/libs/overlayscrollbars-1.5.1.min.css">
+
+	<!-- 페이지 css -->
+	<link rel="stylesheet" class="link_font" resource="../css/fonts.css">
+	<link rel="stylesheet" href="../css/app.css">
+	<link rel="stylesheet" href="../css/app_sellerMiddle.css"> <!-- 셀러 중간관리자에서만 사용합니다 -->
+
+	<!-- (D) 스크립트(폴리필, 라이브러리)는 요청을 줄이기 위해 combind + minify를 적용해주세요. -->
+	<!-- 폴리필 스크립트 -->
+	<script src="../js/polyfill/es6-promise.auto-4.2.4.min.js"></script>
+
+	<!-- 라이브러리 스크립트 -->
+	<script src="../js/libs/webfontloader-1.6.28.min.js"></script>
+	<script src="../js/libs/jquery-3.3.1.slim.min.js"></script>
+	<script src="../js/libs/axios-0.18.0.min.js"></script>
+	<script src="../js/libs/underscore-1.9.1.min.js"></script>
+	<script src="../js/libs/load-image.all-2.19.0.min.js"></script>
+	<script src="../js/libs/swiper-4.3.3.min.js"></script>
+	<script src="../js/libs/tweenmax-2.0.1.min.js"></script>
+	<script src="../js/libs/moment-2.22.2.min.js"></script>
+	<script src="../js/libs/pikaday-1.6.1.min.js"></script>
+	<script src="../js/libs/sortable-1.9.0.min.js"></script>
+	<script src="../js/libs/overlayscrollbars-1.5.1.min.js"></script>
+	<script src="../js/libs/chart-2.7.2.min.js"></script>
+	<script src="../js/libs/ckeditor.full-4.10.0/ckeditor.js"></script>
+
+	<!-- (D) 페이지 공통 스크립트는 body 하단, 전용 스크립트는 .mm_page-content 하단에 넣어주세요. -->
+</head>
+<body>
+	<div id="mm_app" class="mm_app">
+		<!-- 스킵 -->
+		<nav class="mm_skip">
+			<ul>
+				<li><a href="#mm_body" data-href="anchor">본문바로가기</a></li>
+			</ul>
+		</nav>
+		<!-- 스킵 -->
+
+		<!-- 사이드바 -->
+		<div id="mm_sidebar" class="mm_sidebar">
+			<div class="mm_sidebar-bottom">
+				<h1><span class="mm_ir-blind">엔터6 관리자</span></h1>
+				<button type="button" class="btn_sidebar-close"><i class="image_ico"></i><span class="mm_ir-blind">전체메뉴 접어놓기</span></button>
+			</div>
+			<button type="button" class="btn_sidebar-open"><span class="mm_ir-blind">전체메뉴 펼쳐보기</span></button>
+
+			<!-- 사이드바 - 메뉴 -->
+			<div class="mm_scroller" data-scrollbar>
+				<div class="mm_sidebar-menu">
+					<!--
+						(D) 링크는 3뎁스 메뉴를 기준으로 생성합니다.
+						1뎁스, 2뎁스만 있는 메뉴는 상위메뉴와 같은 이름으로 3뎁스를 생성합니다.
+						현재 페이지의 3뎁스 메뉴에 '__on' 클래스와 '선택됨' 타이틀을 추가합니다.
+						3뎁스에 '__on' 클래스가 있으면 페이지에 접속했을 때 1뎁스를 펼쳐지도록 적용했습니다.
+						사이드바 펼침/닫힘 상태는 cookie 대신 sessionStorage에 저장했습니다.
+					 -->
+					 <ul>
+ 						<li>
+ 							<div class="mm_dropdown" data-dropdown="{ '_group': 'sideMenu' }">
+ 								<button type="button" class="btn_dropdown"><span>상점 관리<i class="ico_toggle"></i></span></button>
+ 								<div class="mm_dropdown-item">
+ 									<div class="mm_dropdown-item-inner">
+ 										<ul>
+ 											<li>
+ 												<h6><span>요약 정보</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>요약 정보</span></a></li>
+ 												</ul>
+ 											</li>
+ 											<li>
+ 												<h6><span>셀러업체 공지</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>공지사항</span></a></li>
+ 												</ul>
+ 											</li>
+ 											<li>
+ 												<h6><span>셀러 행사제안</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>행사제안 목록</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>행사제안 등록</span></a></li>
+ 												</ul>
+ 											</li>
+ 											<li>
+ 												<h6><span>셀러설정 관리</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>셀러 목록</span></a></li>
+ 												</ul>
+ 											</li>
+ 										</ul>
+ 									</div>
+ 								</div>
+ 							</div>
+ 						</li>
+ 						<li>
+ 							<div class="mm_dropdown" data-dropdown="{ '_group': 'sideMenu' }">
+ 								<button type="button" class="btn_dropdown"><span>상품 관리<i class="ico_toggle"></i></span></button>
+ 								<div class="mm_dropdown-item">
+ 									<div class="mm_dropdown-item-inner">
+ 										<ul>
+ 											<li>
+ 												<h6><span>상품 분류관리</span></h6>
+ 												<ul>
+ 													<li><a href="#" class="__on" title="선택됨" data-href="{ '_type': 'link' }"><span>자주 쓰는 옵션관리</span></a></li>
+ 												</ul>
+ 											</li>
+ 											<li>
+ 												<h6><span>상품 등록</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>상품 등록</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>스윗딜 등록(묶음상품)</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>일괄 상품 업로드</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>일괄 상품수정 업로드</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>상품승인 대기</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>상품승인 거부</span></a></li>
+ 												</ul>
+ 											</li>
+ 											<li>
+ 												<h6><span>상품 목록</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>상품 목록</span></a></li>
+ 												</ul>
+ 											</li>
+ 											<li>
+ 												<h6><span>상품정보 일괄수정</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>분류</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>판매기간/상태/노출</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>재고 일괄수정</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>상품 판매타입</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>예약 가격 설정</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>상품정보고시</span></a></li>
+ 												</ul>
+ 											</li>
+ 										</ul>
+ 									</div>
+ 								</div>
+ 							</div>
+ 						</li>
+ 						<li>
+ 							<div class="mm_dropdown" data-dropdown="{ '_group': 'sideMenu' }">
+ 								<button type="button" class="btn_dropdown"><span>주문 관리<i class="ico_toggle"></i></span></button>
+ 								<div class="mm_dropdown-item">
+ 									<div class="mm_dropdown-item-inner">
+ 										<ul>
+ 											<li>
+ 												<h6><span>주문 관리</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>주문 목록</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>입금확인 목록</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>배송 준비중 목록</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>배송중 목록</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>배송완료 목록</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>구매확정 목록</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>배송 지연</span></a></li>
+ 												</ul>
+ 											</li>
+ 											<li>
+ 												<h6><span>주문 취소 관리</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>입금 전 취소 목록</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>입금 후 취소 목록</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>취소 요청 목록</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>자동 취소예정 목록</span></a></li>
+ 												</ul>
+ 											</li>
+ 											<li>
+ 												<h6><span>주문 반품 관리</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>엔터 배송 반품목록</span></a></li>
+ 												</ul>
+ 											</li>
+ 											<li>
+ 												<h6><span>주문 교환 관리</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>엔터 배송 교환목록</span></a></li>
+ 												</ul>
+ 											</li>
+ 											<li>
+ 												<h6><span>엑셀 양식 관리</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>엑셀 양식 관리</span></a></li>
+ 												</ul>
+ 											</li>
+ 										</ul>
+ 									</div>
+ 								</div>
+ 							</div>
+ 						</li>
+ 						<li>
+ 							<div class="mm_dropdown" data-dropdown="{ '_group': 'sideMenu' }">
+ 								<button type="button" class="btn_dropdown"><span>정산 관리<i class="ico_toggle"></i></span></button>
+ 								<div class="mm_dropdown-item">
+ 									<div class="mm_dropdown-item-inner">
+ 										<ul>
+ 											<li>
+ 												<h6><span>정산 관리</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>정산확정 내역(ERP)</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>엔터배송 배송비 정산</span></a></li>
+ 												</ul>
+ 											</li>
+ 											<li>
+ 												<h6><span>엔터배송 세금계산서 관리</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>배송비 세금계산서</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>업체부담 쿠폰비용</span></a></li>
+ 												</ul>
+ 											</li>
+ 										</ul>
+ 									</div>
+ 								</div>
+ 							</div>
+ 						</li>
+ 						<li>
+ 							<div class="mm_dropdown" data-dropdown="{ '_group': 'sideMenu' }">
+ 								<button type="button" class="btn_dropdown"><span>고객센터/게시판 관리<i class="ico_toggle"></i></span></button>
+ 								<div class="mm_dropdown-item">
+ 									<div class="mm_dropdown-item-inner">
+ 										<ul>
+ 											<li>
+ 												<h6><span>상품 Q&#38;A 관리</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>상품 Q&#38;A 관리</span></a></li>
+ 												</ul>
+ 											</li>
+ 											<li>
+ 												<h6><span>고객 1:1 문의</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>고객 1:1 문의</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>CS TALK 관리</span></a></li>
+ 												</ul>
+ 											</li>
+ 										</ul>
+ 									</div>
+ 								</div>
+ 							</div>
+ 						</li>
+ 						<li>
+ 							<div class="mm_dropdown" data-dropdown="{ '_group': 'sideMenu' }">
+ 								<button type="button" class="btn_dropdown"><span>전시 관리<i class="ico_toggle"></i></span></button>
+ 								<div class="mm_dropdown-item">
+ 									<div class="mm_dropdown-item-inner">
+ 										<ul>
+ 											<li>
+ 												<h6><span>상품상세 배너 관리</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>공지 배너 관리</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>공지 배너 등록</span></a></li>
+ 												</ul>
+ 											</li>
+ 										</ul>
+ 									</div>
+ 								</div>
+ 							</div>
+ 						</li>
+ 						<li>
+ 							<div class="mm_dropdown" data-dropdown="{ '_group': 'sideMenu' }">
+ 								<button type="button" class="btn_dropdown"><span>프로모션<i class="ico_toggle"></i></span></button>
+ 								<div class="mm_dropdown-item">
+ 									<div class="mm_dropdown-item-inner">
+ 										<ul>
+ 											<li>
+ 												<h6><span>상품할인 관리</span></h6>
+ 												<ul>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>셀러 할인 등록</span></a></li>
+ 													<li><a href="#" data-href="{ '_type': 'link' }"><span>셀러 할인 목록</span></a></li>
+ 												</ul>
+ 											</li>
+ 										</ul>
+ 									</div>
+ 								</div>
+ 							</div>
+ 						</li>
+ 					</ul>
+				</div>
+			</div>
+			<!--// 사이드바 - 메뉴 -->
+		</div>
+		<!--// 사이드바 -->
+
+		<!-- 화면 -->
+		<div class="mm_view">
+			<!-- 헤더 -->
+			<div class="mm_header">
+				<div class="mm_box-lside">
+					<!-- <p class="text_member"><i class="mco_nonmember"></i><span>로그인 하세요.</span></p> -->
+					<p class="text_member"><i class="mco_member"></i><span>Enter6_왕십리점 담당자님</span></p>
+					<a href="www.enter6.co.kr" class="btn_store" target="_blank"><i class="mco_shortcut"></i><span>마이스토어</span></a>
+				</div>
+				<div class="mm_box-rside">
+					<!-- (D) 펼칠 때 조회를 위해 onOpen 값으로 콜백을 연결할 수 있습니다. -->
+					<div class="mm_dropdown mm_header-quickview" data-dropdown="{ 'onOpen': null }">
+						<button type="button" class="btn_dropdown"><span>간략 주문현황 조회<i class="mco_dropdown __dropdown_sm__"></i></span></button>
+						<div class="mm_dropdown-item">
+							<div class="mm_dropdown-item-inner">
+								<ul>
+									<li><span>취소요청</span><strong>406</strong></li>
+									<li><span>입금예정</span><strong>106</strong></li>
+									<li><span>입금확인</span><strong>1,026</strong></li>
+									<li><span>배송준비중</span><strong>797</strong></li>
+									<li><span>배송지연</span><strong>4</strong></li>
+									<li><span>송장입력완료</span><strong>167</strong></li>
+									<li><span>배송중상품</span><strong>6,240</strong></li>
+								</ul>
+								<button type="button" class="btn_reload"><span><i class="mco_reload __reload_bold__"></i>새로고침</span></button>
+							</div>
+						</div>
+					</div>
+					<!-- <button type="button" class="btn_login"><i class="mco_login"></i><span>로그인</span></button> -->
+					<button type="button" class="btn_logout"><i class="mco_logout"></i><span>로그아웃</span></button>
+				</div>
+			</div>
+			<!--// 헤더 -->
+
+			<!-- 내용 -->
+			<div id="mm_body" class="mm_page">
+				<div class="mm_scroller" data-scrollbar>
+					<!-- 본문 -->
+					<div class="mm_page-content">
+						<!-- (D) 실제 내용을 추가하는 부분입니다. -->
+
+						<!-- 즐겨찾기 -->
+						<section class="mm_bookmark">
+							<h6><i class="mco_star"></i><span>즐겨찾기</span></h6>
+							<ul>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>기본정보 설정</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>약관 관리</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>관리권한 설정</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>팝업 관리</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>셀러 목록</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>회원 상담내역</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>포인트 일괄관리</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>주문 완료(가상계좌)</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>상품 고시정보</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+								<li>
+									<a href="#" data-href="{ '_type': 'link' }"><span>상품 목록</span></a>
+									<button type="button" class="btn_remove"><i class="mco_remove __remove_circle__"></i><span class="mm_ir-blind">삭제</span></button>
+								</li>
+							</ul>
+						</section>
+						<!--// 즐겨찾기 -->
+
+						<!-- 페이지상단 -->
+						<div class="mm_head">
+							<h2 class="mm_title"><span>자주 쓰는 옵션수정</span></h2>
+							<div class="mm_btngroup">
+								<a href="#" class="btn_help" data-href="{ '_type': 'help' }"><i class="mco_help"></i><span class="mm_ir-blind">도움말</span></a>
+								<button type="button" class="btn_bookmark"><i class="mco_bookmark"></i><span>즐겨찾기 추가</span></button>
+								<a href="" class="btn_window" target="_blank"><i class="mco_window"></i><span>새창보기</span></a>
+							</div>
+							<div class="mm_breadcrumb">
+								<i class="mco_breadcrumb"></i>
+								<ol>
+									<li><i class="mco_next __next_sm__"></i><span>상품 관리</span></li>
+									<li><i class="mco_next __next_sm__"></i><span>상품 분류관리</span></li>
+									<li><i class="mco_next __next_sm__"></i><span>자주 쓰는 옵션관리</span></li>
+									<li><i class="mco_next __next_sm__"></i><span>자주 쓰는 옵션수정</span></li>
+								</ol>
+							</div>
+						</div>
+						<!--// 페이지상단 -->
+
+						<section class="mm_section">
+                            <h3 class="mm_heading">
+                                <i class="mco_heading"></i><span>옵션 기본정보</span>
+                            </h3>
+                            <div class="mm_formbox">
+								<table>
+									<tbody>
+										<tr>
+											<th scope="row"><span>옵션명</span><i class="mco_required" title="필수입력"></i></th>
+                                            <td>
+                                                <div class="mm_form-text">
+													<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+													<label>
+														<input type="text" class="textfield"><i class="bg_text"></i>
+														<span class="text_placeholder mm_ir-blind">옵션명</span>
+													</label>
+												</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+											<th scope="row"><span>옵션코드</span><i class="mco_required" title="필수입력"></i></th>
+                                            <td>
+                                                <div class="mm_form-text">
+													<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+													<label>
+														<input type="text" class="textfield"><i class="bg_text"></i>
+														<span class="text_placeholder mm_ir-blind">옵션명</span>
+													</label>
+												</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+						<!-- 옵션항목 -->
+                        <section class="mm_section m-product-option">
+                            <h3 class="mm_heading">
+                                <i class="mco_heading"></i><span>옵션항목 추가</span>
+                            </h3>
+							<div class="mm_list">
+								<div class="mm_scroller __scroller_x__">
+									<table>
+										<thead>
+											<tr>
+												<th class="col_3x" scope="col"><span>항목명</span><i class="mco_required" title="필수입력"></i></th>
+												<th class="col_3x" scope="col"><span>옵션명</span><i class="mco_required" title="필수입력"></i></th>
+												<th class="col_btn" scope="col"><span>관리</span></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													<div class="mm_form-text __text_full__">
+														<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+														<label>
+															<input type="text" class="textfield"><i class="bg_text"></i>
+															<span class="text_placeholder">예) 사이즈</span>
+														</label>
+													</div>
+												</td>
+												<td>
+													<div class="mm_form-text __text_full__">
+														<button type="button" class="btn_text-clear"><i class="mco_form-clear"></i><span class="mm_ir-blind">지우기</span></button>
+														<label>
+															<input type="text" class="textfield"><i class="bg_text"></i>
+															<span class="text_placeholder">예) S, M, L, XL</span>
+														</label>
+													</div>
+												</td>
+												<td><button type="button" class="mm_btn __btn_xxs_dark__" disabled><span>삭제</span></button></td>
+											</tr>
+											<tr>
+												<td colspan="3">
+													<button class="mm_btn __btn_xs_primary__ btn_add-option"><span>옵션항목 추가하기</span></button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="mm_formbox-attention">
+									<ul>
+										<li>옵션명을 <span>,(쉼표)</span>로 구분하여 다중으로 등록할 수 있습니다.</li>
+										<li>옵션명 구분을 위한 <span>,(쉼표)</span>를 제외하고 특수문자는 사용할 수 없습니다.</li>
+										<li>옵션항목은 최대 <span>2개</span>까지 추가할 수 있습니다.</li>
+									</ul>
+								</div>
+								<button type="button" class="mm_btn __btn_xl_primary__ btn_create-option"><span>옵션 생성하기<i class="mco_down __down_lg__"></i></span></button>
+							</div>
+
+							<!-- 옵션항목리스트 -->
+							<div class="mm_list m-product-option-result">
+								<div class="mm_scroller __scroller_x__">
+									<table>
+										<thead>
+											<tr>
+												<th class="col_2x" scope="col"><span>항목명</span></th>
+												<th class="col_2x" scope="col"><span>옵션명</span></th>
+												<th scope="col"><span>노출여부</span></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td rowspan="6"><span>색상 / 사이즈</span></td>
+												<td><span>RED / S</span></td>
+												<td>
+													<div class="mm_radio-list">
+														<ul>
+															<li>
+																<label class="mm_form-radio">
+																	<input type="radio" name="dev_option1_1" checked>
+																	<b class="mm_box-block">
+																		<i class="mco_form-radio"></i>
+																		<span class="text_label">노출</span>
+																	</b>
+																</label>
+															</li>
+															<li>
+																<label class="mm_form-radio">
+																	<input type="radio" name="dev_option1_1">
+																	<b class="mm_box-block">
+																		<i class="mco_form-radio"></i>
+																		<span class="text_label">노출안함</span>
+																	</b>
+																</label>
+															</li>
+														</ul>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td><span>RED / M</span></td>
+												<td>
+													<div class="mm_radio-list">
+														<ul>
+															<li>
+																<label class="mm_form-radio">
+																	<input type="radio" name="dev_option1_2" checked>
+																	<b class="mm_box-block">
+																		<i class="mco_form-radio"></i>
+																		<span class="text_label">노출</span>
+																	</b>
+																</label>
+															</li>
+															<li>
+																<label class="mm_form-radio">
+																	<input type="radio" name="dev_option1_2">
+																	<b class="mm_box-block">
+																		<i class="mco_form-radio"></i>
+																		<span class="text_label">노출안함</span>
+																	</b>
+																</label>
+															</li>
+														</ul>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td><span>RED / L</span></td>
+												<td>
+													<div class="mm_radio-list">
+														<ul>
+															<li>
+																<label class="mm_form-radio">
+																	<input type="radio" name="dev_option1_3" checked>
+																	<b class="mm_box-block">
+																		<i class="mco_form-radio"></i>
+																		<span class="text_label">노출</span>
+																	</b>
+																</label>
+															</li>
+															<li>
+																<label class="mm_form-radio">
+																	<input type="radio" name="dev_option1_3">
+																	<b class="mm_box-block">
+																		<i class="mco_form-radio"></i>
+																		<span class="text_label">노출안함</span>
+																	</b>
+																</label>
+															</li>
+														</ul>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td><span>BLUE / S</span></td>
+												<td>
+													<div class="mm_radio-list">
+														<ul>
+															<li>
+																<label class="mm_form-radio">
+																	<input type="radio" name="dev_option1_4" checked>
+																	<b class="mm_box-block">
+																		<i class="mco_form-radio"></i>
+																		<span class="text_label">노출</span>
+																	</b>
+																</label>
+															</li>
+															<li>
+																<label class="mm_form-radio">
+																	<input type="radio" name="dev_option1_4">
+																	<b class="mm_box-block">
+																		<i class="mco_form-radio"></i>
+																		<span class="text_label">노출안함</span>
+																	</b>
+																</label>
+															</li>
+														</ul>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td><span>BLUE / M</span></td>
+												<td>
+													<div class="mm_radio-list">
+														<ul>
+															<li>
+																<label class="mm_form-radio">
+																	<input type="radio" name="dev_option1_5" checked>
+																	<b class="mm_box-block">
+																		<i class="mco_form-radio"></i>
+																		<span class="text_label">노출</span>
+																	</b>
+																</label>
+															</li>
+															<li>
+																<label class="mm_form-radio">
+																	<input type="radio" name="dev_option1_5">
+																	<b class="mm_box-block">
+																		<i class="mco_form-radio"></i>
+																		<span class="text_label">노출안함</span>
+																	</b>
+																</label>
+															</li>
+														</ul>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td><span>BLUE / L</span></td>
+												<td>
+													<div class="mm_radio-list">
+														<ul>
+															<li>
+																<label class="mm_form-radio">
+																	<input type="radio" name="dev_option1_6" checked>
+																	<b class="mm_box-block">
+																		<i class="mco_form-radio"></i>
+																		<span class="text_label">노출</span>
+																	</b>
+																</label>
+															</li>
+															<li>
+																<label class="mm_form-radio">
+																	<input type="radio" name="dev_option1_6">
+																	<b class="mm_box-block">
+																		<i class="mco_form-radio"></i>
+																		<span class="text_label">노출안함</span>
+																	</b>
+																</label>
+															</li>
+														</ul>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!--// 옵션항목리스트 -->
+                        </section>
+						<!--// 옵션항목 -->
+
+						<div class="mm_foot">
+							<div class="mm_btngroup">
+								<div class="mm_box-inline">
+									<a href="#" class="mm_btn __btn_lg__" data-href="{ '_type': 'link' }"><span>취소하기</span></a>
+									<button type="button" class="mm_btn __btn_lg_secondary__"><span>수정하기</span></button>
+								</div>
+							</div>
+						</div>
+
+						<!-- 페이지 스크립트 -->
+						<!-- <script src="../js/.js"></script> -->
+					</div>
+					<!--// 본문 -->
+				</div>
+			</div>
+			<!--// 내용 -->
+		</div>
+		<!--// 화면 -->
+	</div>
+
+	<!-- <script src="../js/cs.js"></script> -->
+	<!-- 공통 스크립트 -->
+	<script src="../js/app_common.js"></script>
+	<script src="../js/app_page-common.js"></script>
+</body>
+</html>

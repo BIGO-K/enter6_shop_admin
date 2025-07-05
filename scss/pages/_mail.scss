@@ -1,0 +1,98 @@
+@charset 'utf-8';
+
+/**
+** 메일링/SMS
+**/
+
+/// sms발송
+.m-dm-send-sms {
+    .mm_formbox-range {
+        &:nth-child(2) {
+            margin-top: 20px;
+        }
+
+        .mm_form-text {
+            padding-right: 0;
+            padding-left: 100px;
+            width: 433px;
+
+            button.btn_text-clear {
+                right: 0;
+            }
+
+            input.textfield {
+                text-align: left;
+            }
+
+            span.text_measure {
+                left: 0;
+                width: 100px;
+                border-right: 0;
+                border-left: 1px solid #d3d3d3;
+            }
+        }
+    }
+
+    @include clearfix;
+	
+	.m--sms-preview {
+		float: left;
+		width: 200px;
+		height: 240px;
+		border: 1px solid #d3d3d3;
+		background: #f5f5f5;
+
+		.mm_form-text {
+			label {
+				border: 0;
+
+				.bg_text {
+					background: #f5f5f5;
+				}
+
+				textarea.textfield {
+					overflow-y: auto;
+					height: 215px;
+				}
+			}
+			
+			.text_type,
+			.text_byte {
+				position: absolute;
+				right: 10px;
+				bottom: -12px;
+				color: #808080;
+				font-size: 14px;
+			}
+			
+			.text_type {
+				right: 0;
+				left: 10px;
+			}
+		}
+	}
+	
+	.m--sms-subsection {
+		float: left;
+		margin-left: 10px;
+		width: 450px;
+		
+		.mm_form-text {
+			margin-bottom: 5px;
+            padding-left: 100px;
+			
+            .text_label {
+				position: absolute;
+				top: 0;
+                left: 0;
+				padding-left: 9px;
+				width: 100px;
+                border: 1px solid #d3d3d3;
+				border-right: 0;
+				font-size: 14px;
+				line-height: 38px;
+            }
+        }
+	}
+}
+///-- sms발송

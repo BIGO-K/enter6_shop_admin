@@ -1,0 +1,352 @@
+@charset 'utf-8';
+
+/**
+** 주문 관리
+**/
+
+/// 주문리스트 공통 (정산관리 > 상품 환불관리에 공통사용)
+.m-order-list {
+	.mm_box-rside {
+		.mco_barcode {
+			font-size: 24px;
+			line-height: 38px;
+		}
+	}
+	
+	// 간략정보 드롭다운
+	tbody.mm_dropdown {
+		&.__dropdown-on {
+			.btn_dropdown {
+				&:after {
+					border-color: $color-secondary-base;
+				}
+
+				i {
+					@include transform(rotate(180deg));
+				}
+			}
+
+			.mm_dropdown-item {
+				display: table-row;
+			}
+		}
+
+		.mm_btn.btn_dropdown {
+			position: relative;
+			padding-right: 32px;
+
+			i {
+				position: absolute;
+				right: 16px;
+				font-size: 10px;
+			}
+		}
+
+		.mm_dropdown-item {
+			display: none;
+		}
+	}
+
+	// 간략정보 상세
+	&-detail {
+		background: #e1e1e1;
+
+		table {
+			border: 1px solid #d3d3d3;
+			border-top: 0;
+			background: #fff;
+
+			thead {
+				th {
+					border-left: 0;
+				}
+			}
+		}
+	}
+
+	// 주문상품 옵션
+	.text_order-option {
+		padding-top: 0;
+	}
+
+	// 기타사유 말줄임(text_reason으로 적용 중, 이슈 발생 시 변경)
+	// .mm_text-ellipsis {
+	// 	width: 100px;
+	// }
+
+	// 전체인쇄
+	&-print {
+		position: relative;
+		padding: 20px 20px 20px 125px;
+		border-top: 2px solid #596275;
+		background: #f5f5f5;
+
+		h6 {
+			position: absolute;
+			top: 20px;
+			left: 20px;
+			font-size: 14px;
+			line-height: 40px;
+		}
+
+		li {
+			float: left;
+			margin-right: 10px;
+		}
+	}
+}
+///-- 주문리스트 공통
+
+/// 검색 주문 다운로드 (정산관리 > 상품 환불관리에 공통사용)
+.m-order-list-download {
+    .mm_form-select {
+        margin-bottom: 10px;
+        width: 219px;
+    }
+}
+///-- 검색 주문 다운로드
+
+/// 상세주문내역
+.m-order-detail {
+	// 상태등록/변경
+    &-state {
+		padding: 20px;
+		border-bottom: 2px solid #b9b9b9;
+		background: #f5f5f5;
+
+		.mm_formbox-linked {
+			margin-bottom: 6px;
+
+			.mm_form-select {
+				margin-right: 19px;
+				width: 180px;
+			}
+
+			.mm_form-text {
+				margin-right: 19px;
+			}
+		}
+
+		.m--state-btn {
+			margin: 10px 0 0;
+			@include clearfix;
+
+			> * {
+				float: left;
+				margin-right: 6px;
+			}
+
+			.mm_form-radio {
+				margin-right: 20px;
+			}
+
+			.mm_btn {
+				width: auto;
+			}
+		}
+	}
+
+	// 주문상품정보
+	&-info {
+		td {
+			> .mm_form-select {
+				margin-bottom: 4px;
+				padding: 0;
+			}
+
+			.text_order-option {
+				padding-top: 0;
+			}
+
+			.text_order-memo {
+				display: inline-block;
+				width: 100%;
+				font-size: 11px;
+				line-height: 16px;
+				white-space: normal;
+				word-break: break-all;
+			}
+
+			.mm_btn {
+				&.btn_counsel-add {
+					margin-top: -14px;
+				}
+
+				&.btn_visit-approval,
+				&.btn_visit-reject {
+					width: 76px;
+				}
+
+				&.btn_visit-approval {
+					margin: -5px 0 2px;
+				}
+			}
+		}
+
+	    .m-order-detail-state {
+	        .mm_formbox-linked {
+		        .mm_form-text {
+		            width: 800px;
+		        }
+
+				.text_linked {
+					margin-left: -5px;
+					width: 75px;
+					text-align: right;
+					white-space: nowrap;
+				}
+			}
+	    }
+	}
+}
+/// 상세주문내역
+
+/// 택배사코드
+.m-order-courierid {
+	margin-top: 60px;
+
+	ul {
+		padding: 1px 0 0 1px;
+
+		li {
+			float: left;
+			margin: -1px 0 0 -1px;
+			padding: 9px 12px;
+			width: 14.28571%;
+			border: 1px solid #d3d3d3;
+			font-size: 13px;
+
+			span {
+				display: inline-block;
+				margin-left: 9px;
+			}
+		}
+	}
+}
+///-- 택배사코드
+
+/// 주문 관리 - 주문상담내역
+.m-order-counsel {
+	// 실시간현황
+	&-status {
+		@include clearfix;
+
+		section {
+			float: left;
+			margin-top: 0;
+			width: 20%;
+
+			&:first-of-type {
+				padding-right: 10px;
+				width: 80%;
+			}
+		}
+
+		th {
+			background: #f0f0f0;
+		}
+	}
+}
+///-- 주문 관리 - 주문상담내역
+
+/// 엑셀 양식 관리
+.m-order-excel {
+	.mm_formbox-selected {
+		> .mm_btngroup {
+			margin-top: -22px;
+		}
+
+		.btn_blank {
+			span {
+				padding-right: 30px;
+	    		width: 100%;
+			}
+
+			.mco_next {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 30px;
+				height: 30px;
+				border-left: 1px solid #6e7687;
+				line-height: 30px;
+				text-align: center;
+			}
+		}
+
+		section {
+			.mm_selected-list {
+				.btn_sort {
+					display: none;
+					position: absolute;
+					top: 0;
+					right: 0;
+					margin: 0;
+					width: 28px;
+					height: 100%;
+					color: #b9b9b9;
+					font-size: 11px;
+					line-height: 28px;
+				}
+			}
+		}
+
+		.mm_list-foot {
+			clear: both;
+			margin-top: 10px;
+			width: 100%;
+
+			.mm_box-rside {
+				.btn_change {
+					&-cancel {
+						display: none;
+						color: #959595;
+
+						&:after {
+							border-color: #959595;
+						}
+					}
+
+					&-complete {
+						display: none;
+					}
+				}
+			}
+		}
+
+		// 상품 그룹의 순서 변경이 가능할 때
+		&.__list-sortable {
+			section {
+				.mm_form-check {
+					.mco_form-check {
+						cursor: default;
+					}
+				}
+
+				.mm_selected-list {
+					.btn_remove {
+						display: none;
+					}
+
+					.btn_sort {
+						display: block;
+					}
+				}
+			}
+
+			.mm_list-foot {
+				.mm_box-rside {
+					.btn_change {
+						display: none;
+
+						&-cancel,
+						&-complete {
+							display: block;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+///-- 엑셀 양식 관리
