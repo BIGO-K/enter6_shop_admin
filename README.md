@@ -1,8 +1,8 @@
 # 엔터6 쇼핑몰 어드민
 + 엔터6 전체 일정  
-	https://docs.google.com/spreadsheets/d/1dKDZv7RbG4iovnJ3IrP_CQicKeuoxjlL6lpu0QsiI3g/edit#gid=378830347
+	https://docs.google.com/spreadsheets/
 + 어드민 스토리보드 구글드라이브 경로  
-	https://drive.google.com/drive/folders/1l2lwfES8aUrUp__j2sJaWUUJ3K3cTbTC
+	https://drive.google.com/drive/
 + 퍼블리싱 작업 리스트  
 	- 최고관리자 : http://publish.mmonstar.co.kr/enter6/shop_2019/admin/
 	- 셀러관리자 : http://publish.mmonstar.co.kr/enter6/shop_2019/admin/html_sellerAdmin/index.html
@@ -31,9 +31,9 @@
 
 ## DESIGN
 + 디자인 구글드라이브 경로  
-	https://drive.google.com/drive/u/0/folders/1l2gALaNLsp_VWzfFy9QZF1mwar5bnF8C
+	https://drive.google.com/drive/
 + 디자인 IA  
-	https://docs.google.com/spreadsheets/d/1eR-3AOE4lgZh4SqEB1B3tUa3lMMV5FdYjYWEyYAKhIU/edit#gid=652032890
+	https://docs.google.com/spreadsheets/
 <br><br>
 - - -
 
